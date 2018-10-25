@@ -13,22 +13,22 @@
 </style>
 </head>
 <body>
-	 <h3>My Google Maps Demo</h3>
+ <h3>My Google Maps Demo</h3>
     <!--The div element for the map -->
     <div id="map"></div>
 	<script type="text/javascript">
 	function initMap() {
 		  // The location of Uluru
-		  var uluru = {lat: -25.344, lng: 131.036};
+		  var uluru = {lat: 15.487236, lng: 108.305246};
 		  // The map, centered at Uluru
 		  var map = new google.maps.Map(
-		      document.getElementById('map'), {zoom: 8, center: uluru});
+		      document.getElementById('map'), {zoom: 4, center: uluru});
 		  // The marker, positioned at Uluru
 		  var marker = new google.maps.Marker({position: uluru, map: map});
 		}
 	</script>
 	 <script async defer
-    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoSgD1qqvHoM4mOq-1_eEYb8qtiHsll3o&callback=initMap">
+    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGFWcOhtvnasKq3OKpl7B2RLr9je3gl1Y&callback=initMap" type="text/javascript">
     </script>
 </body>
 </html>
