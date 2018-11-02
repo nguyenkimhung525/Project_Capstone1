@@ -12,10 +12,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/doT.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/D.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/photo-sphere-viewer.min.js"></script>
-
-<script src="https://photo-sphere-viewer.js.org/node_modules/three/examples/js/renderers/CanvasRenderer.js"></script>
-<script src="https://photo-sphere-viewer.js.org/node_modules/three/examples/js/renderers/Projector.js"></script>
-
 <style>
 html, body {
 				margin: 0;
@@ -34,18 +30,14 @@ html, body {
 <body>
 	
 	<div id="photosphere"></div>
-	<script>
+	<script type="text/javascript">
 	var photosphere=document.getElementById("photosphere");
 	var PSV = new PhotoSphereViewer({
-	    panorama: ' /Project_Captone1/static/image/im.jpg',
-	    loading_img: 'https://raw.githubusercontent.com/mistic100/Photo-Sphere-Viewer/3.1.0/example/photosphere-logo.gif',
+	    panorama: '/Project_Captone_pb2/static/image/360.jpg',
 	    navbar: 'autorotate zoom download fullscreen',
 	    caption: 'Bryce Canyon National Park <b>&copy; Mark Doliner</b>',
 	    default_fov: 65,
-	    mousewheel: false,
-	    size: {
-	      height: 400
-	    }
+	    mousewheel: false
 		});
 		</script>
 </body>

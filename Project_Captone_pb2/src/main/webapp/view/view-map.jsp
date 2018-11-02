@@ -64,7 +64,8 @@
        	var markers=[
 	   	 	<c:forEach items="${locations}" var="locations" varStatus="status">
 	     		{
-	     			coords:{lat:${locations.lat_number},lng:${locations.lng_number}}
+	     			coords:{lat:${locations.lat_number},lng:${locations.lng_number}},
+	            	content:'<a id ="content" href="view/NewFile.jsp">View 360</a>'
 	     		}<c:if test="${!status.last}">,</c:if>
 	    	</c:forEach>
        	];

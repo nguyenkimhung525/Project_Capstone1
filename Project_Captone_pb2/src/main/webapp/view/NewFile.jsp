@@ -1,44 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="utf-8" />
 <title>Photo Sphere Viewer</title>
-<meta name="viewport" content="initial-scale=1.0" />
-<script src="/static/js/three.min.js"
-	type="text/javascript"></script>
-<script type="/static/js/photo-sphere-viewer.min.js"></script>
-<script type="/static/js/doT.min.js"></script>
-<script type="/static/js/uevent.min.js"></script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/jss/three.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/jss/photo-sphere-viewer.min.js"></script>
 <style>
-html, body {
+			html, body {
 				margin: 0;
 				width: 100%;
 				height: 100%;
 				overflow: hidden;
 			}
-			#photosphere {
+			#container {
 				width: 100%;
 				height: 100%;
 			}
-</style>
+		</style>
 </head>
-
 <body>
-	<div id="photosphere"></div>
-	<script>
-	var photosphere=document.getElementById("photosphere");
-	var PSV = new PhotoSphereViewer({
-	    panorama: 'https://cdn.rawgit.com/mistic100/Photo-Sphere-Viewer/3.1.0/example/Bryce-Canyon-National-Park-Mark-Doliner.jpg',
-	    container: 'photosphere',
-	    navbar: 'autorotate zoom download fullscreen',
-	    caption: 'Bryce Canyon National Park <b>&copy; Mark Doliner</b>',
-	    default_fov: 65,
-	    mousewheel: false,
-	  });
-	
+		<div id="container"></div>
+
+		<script>
+			var div = document.getElementById('container');
+			var PSV = new PhotoSphereViewer({
+					panorama: '/Project_Captone_pb2/static/image/https___photo-sphere-viewer.js.org_assets_Bryce-Canyon-National-Park-Mark-Doliner.jpg',
+					container: div,
+					time_anim: 3000,
+					navbar: true,
+					navbar_style: {
+						backgroundColor: 'rgba(58, 67, 77, 0.7)'
+					},
+				});
 		</script>
-</body>
+	</body>
 
 </html>
