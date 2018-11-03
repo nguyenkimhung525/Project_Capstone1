@@ -21,4 +21,5 @@ public class Location implements Serializable{
 		this.lng_number = lng_number;
 	}
 	private double lng_number;
+	
 }

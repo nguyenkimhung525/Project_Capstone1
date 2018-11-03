@@ -18,7 +18,7 @@ public class TourServiceImp implements TourServices{
 		dao=new TourDAO();
 	}
 	@Override
-	public List<Location> getlistlocal(int id) {
+	public Map<Double,Double> getlistlocal(int id) {
 		// TODO Auto-generated method stub
 		return dao.locations(id);
 	}
@@ -32,6 +32,11 @@ public class TourServiceImp implements TourServices{
 	public Location getlatlng(String tourname) {
 		// TODO Auto-generated method stub
 		return dao.lat_lng(tourname);
+	}
+	@Override
+	public List<Location> getlistimage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

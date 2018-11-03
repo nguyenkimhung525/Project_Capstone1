@@ -1,0 +1,55 @@
+@charset "ISO-8859-1";
+
+
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+       #map {
+        height: 100%;
+      }
+.content{
+	border: 1px solid transparent;
+	height: 230px;
+	width: 500px;
+	padding-left: 12px;
+	padding-top: -10px;
+}
+.content .ct{float:left;}
+.content .ct.image{
+	border: 1px solid transparent; 
+	width: 52%;
+	height: 90px;
+}
+.content .ct.image img{
+	width: 47%;
+	height: 90px;
+	border: 1px solid transparent; 
+	float: left;
+	padding-right: 5px;
+}
+
+.content .ct.view{
+	height: 90px;
+	width: 43%;
+	border: 1px solid transparent; 
+}
+.ct-image:after{
+	content: '';
+	clear: both;
+}
+.content .ct.view img{
+	height: 90px;
+	width: 90;
+	opacity: 0.8;
+	margin-left:5px; 
+	border: 1px solid transparent;
+}
+.content .ct.view i{
+	position: absolute;
+	padding-top: 13px;
+	color: black;
+	font-weight: 600;
+}

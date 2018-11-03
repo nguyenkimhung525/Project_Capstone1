@@ -4,12 +4,15 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import app.com.entities.Location;
 import app.com.entities.TourType;
+import app.com.entities.ViewMap;
 
 public class TourDAO {
 	private String hostname="localhost";
@@ -45,8 +48,8 @@ public class TourDAO {
 		return preparedStatement;
 	}
 	//get list location
-	public List<Location> locations(int tb_id){
-		List<Location> list=new ArrayList<>();
+	public Map<Double,Double> locations(int tb_id){
+		Map<Double,Double> map=new HashMap<>();
 		String sql="select lat_number,lng_number from tb_location"+
 					" where TourcategoryID=any(SELECT tourcategoryid"+" "
 					+" from tb_tourcategory tb where tb.tourtypeid=?)";
@@ -58,12 +61,12 @@ public class TourDAO {
 				location=new Location();
 				location.setLat_number(resultSet.getDouble(1));
 				location.setLng_number(resultSet.getDouble(2));
-				list.add(location);
+				map.put(location.getLat_number(), location.getLng_number());
 				}
 		} catch (SQLException e) {
 			System.out.println("errorr"+e);
 		}
-		return list;
+		return map;
 	}
 	
 	//get id of tourtype
@@ -103,10 +106,39 @@ public class TourDAO {
 		
 		return location;
 	}
+	ViewMap viewMap;
+	public List<ViewMap> getimageviewmap(double lng) {
+		List<ViewMap> list=new ArrayList<>();
+		String sql="select image from tb_svimage ts where ts.lng_number=?";
+		try {
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setDouble(1, lng);
+
+			resultSet=preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				viewMap = new ViewMap();
+				viewMap.setImage(resultSet.getString(1));
+				list.add(viewMap);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error: "+e);
+		}
+		
+		return list;
+	}
 	public static void main(String[] args) {
 		TourDAO dao=new TourDAO();
 		//dao.locations(1);
+		Map<Double,Double> maps=new HashMap<>();
+		maps.put(16.004306, 108.261808);
 		
+		for (Map.Entry<Double, Double> entry : dao.locations(1).entrySet()) {
+			System.out.println(entry.getKey()+" : "+entry.getValue());
+		}
+		for (ViewMap location : dao.getimageviewmap(maps.get(16.004306))) {
+			System.out.println(location.getImage());
+		}
 		System.out.println(dao.tourtypeid("Đà Nẵng"));
 		//System.out.println("Đà Nẵng");
 		dao.lat_lng("Đà Nẵng");
