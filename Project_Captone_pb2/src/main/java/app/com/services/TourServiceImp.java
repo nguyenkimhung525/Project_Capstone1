@@ -38,5 +38,10 @@ public class TourServiceImp implements TourServices{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public List<Location> getlistshowview(int gettourtypeid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

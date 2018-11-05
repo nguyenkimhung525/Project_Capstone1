@@ -10,19 +10,14 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/viewmap.css">
 </head>
 <body>
+<my:handler-image var="" lng=""></my:handler-image>
 	<div class="content">
-		<h2>Đà Nẵng - Phố Cổ Hội An</h2>
+		<my:handler-contents var="contents" lat="16.099534"></my:handler-contents>
+	<h2>${contents.name}</h2>
 		<p>Đà Nẵng có nhiều danh thắng tuyệt đẹp say lòng du khách như Ngũ Hành Sơn, Bà Nà, bán đảo Sơn Trà...</p>
 		<div class="ct image">
-			<c:forEach items="${locations}" var="locations">
-				<my:handler-image var="images" lng="${locations.value}"></my:handler-image>
-				<c:forEach items="${images}" var="images">
-					<img alt="" src="${pageContext.request.contextPath}/static/image_viewmap/${images.image}">
-				</c:forEach>
-			</c:forEach>
-			
+					<img alt="" src="${pageContext.request.contextPath}/static/image_viewmap/caurong1.jpg">					
 		</div>
-		<a href=""></a>
 		<div class="ct view">
 			<img alt="" src="${pageContext.request.contextPath}/static/image/view360do.PNG"><i>Chế độ hình ảnh<br/> view 360°</i>
 		</div>

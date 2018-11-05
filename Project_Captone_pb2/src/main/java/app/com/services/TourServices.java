@@ -15,4 +15,6 @@ public interface TourServices {
 
 	public List<Location> getlistimage();
 
+	public List<Location> getlistshowview(int gettourtypeid);
+
 }

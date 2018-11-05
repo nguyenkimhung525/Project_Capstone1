@@ -12,23 +12,12 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/viewmap.css">
   </head>
   <body>
+		  <c:forEach items="${locations}" var="location">
+		   </c:forEach>
     <div id="map"></div>
    <script type="text/javascript">
    var currentInfoWindow = null;
-   var infoWindow;
-   		var contentString='<div class="content">'+
-   			'<h2>Đà Nẵng - Phố Cổ Hội An</h2>'+
-   			'<p>Đà Nẵng có nhiều danh thắng tuyệt đẹp say lòng du khách như Ngũ Hành Sơn, Bà Nà, bán đảo Sơn Trà...</p>'+
-   			'<div class="ct image">'+
-	   			'<my:handler-image var="images" lng="${locations.value}">'+'</my:handler-image>'+
-				'<c:forEach items="${images}" var="images">'+
-					'<img alt="" src="${pageContext.request.contextPath}/static/image_viewmap/${images.image}">'+
-				'</c:forEach>'+
-   			'</div>'+
-   			'<div class="ct view">'+
-   				'<a href="view/View360.jsp"><img alt="" src="${pageContext.request.contextPath}/static/image/view360do.PNG"><i>Chế độ hình ảnh<br/> view 360°</i>'+
-   			'</div>'+
-   		'</div>';
+   var array=null;
       function initMap() {
         var options= {
         	zoom: 12,
@@ -64,16 +53,29 @@
 	        		coords:{lat:16.069079,lng: 108.167883}
 	        	}
         	];?*/
+        			<%int dem=0;%>
         //sng dung java;
        	var markers=[
 	   	 	<c:forEach items="${locations}" var="locations" varStatus="status">
-	     		{
+	   	 		{
 	     			coords:{lat:${locations.key},lng:${locations.value}},
-	            	content:contentString
+		   			<my:handler-image var="images" lat="${locations.key}"></my:handler-image>
+		   		  	<my:handler-contents var="contents" lat="${locations.key}"></my:handler-contents>
+	            	content:'<div class="content">'+
+	       			'<h2>${contents.name}</h2>'+
+	       			'<p>${contents.content}</p>'+
+	       			'<div class="ct image">'+
+	    	   			'<c:forEach items="${images}" var="images">'+
+	    					'<img alt="" src="${pageContext.request.contextPath}/static/image_viewmap/${images.image}">'+
+	    				'</c:forEach>'+
+	       			'</div>'+
+	       			'<div class="ct view">'+
+	       				'<a href="view/View360.jsp"><img alt="" src="${pageContext.request.contextPath}/static/image/view360do.PNG"><i>Chế độ hình ảnh<br/> view 360°</i>'+
+	       			'</div>'+
+	       		'</div>'
 	     		}<c:if test="${!status.last}">,</c:if>
 	    	</c:forEach>
        	];
-        
         
         for (var i = 0; i < markers.length; i++) {
         	addMarker(markers[i]);
@@ -93,27 +95,24 @@
 			});
         	
         	if(props.content){
-        		 infoWindow = new google.maps.InfoWindow({
+        		 var infoWindow = new google.maps.InfoWindow({
         	        	content:props.content
         	     });
-        		 
-        	}
-        	 marker.addListener('click',function(){
-              	toggleBounce(marker);
-              	if(currentInfoWindow!=null){
-              		infoWindow.close();
-              	}
-              	currentInfoWindow=infoWindow;
-             	infoWindow.open(map,marker);
-             	
+       
+       		 	 marker.addListener('click',function(){
+              		toggleBounce(marker);
+              		if(currentInfoWindow!=null){
+              			currentInfoWindow.close();
+              		}
+              		currentInfoWindow=infoWindow;
+             		infoWindow.open(map,marker);
              });
         	 google.maps.event.addListener(map, 'click', function() {
  				infoWindow.close();
  			});
 		}
+      	}
       }
-      
-      
       function toggleBounce(marker) {
             marker.setAnimation(google.maps.Animation.BOUNCE);
             setTimeout(function () { marker.setAnimation(null); }, 2000);

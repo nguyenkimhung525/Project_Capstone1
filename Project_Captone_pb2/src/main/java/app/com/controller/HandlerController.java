@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import app.com.dao.TourDAO;
 import app.com.entities.Location;
 import app.com.entities.TourType;
+import app.com.entities.ViewMap;
 import app.com.services.TourServices;
 
 @Controller
@@ -28,10 +29,9 @@ public class HandlerController {
 		logger.info("View Map called");
 		String img2="img2";
 		Map<Double, Double> locations=tourservice.getlistlocal(tourservice.gettourtypeid(tourType.getTourname()));
-		
+		//List<Location> locationss=tourservice.getlistshowview(tourservice.gettourtypeid(tourType.getTourname()));
 		
 	//	List<Location> lc_image=tourservice.getlistimage();
-		
 		Location location = tourservice.getlatlng(tourType.getTourname());
 		model.addAttribute("locations",locations);
 		model.addAttribute("local",location);

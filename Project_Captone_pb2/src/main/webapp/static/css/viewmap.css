@@ -30,7 +30,6 @@
 	float: left;
 	padding-right: 5px;
 }
-
 .content .ct.view{
 	height: 90px;
 	width: 43%;
@@ -42,7 +41,6 @@
 }
 .content .ct.view img{
 	height: 90px;
-	width: 90;
 	opacity: 0.8;
 	margin-left:5px; 
 	border: 1px solid transparent;

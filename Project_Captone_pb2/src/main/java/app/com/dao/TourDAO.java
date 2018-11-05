@@ -33,7 +33,7 @@ public class TourDAO {
 			System.out.println("Success");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error");
+			System.out.println("Error"+e);
 			e.printStackTrace();
 		}
 	}
@@ -68,7 +68,6 @@ public class TourDAO {
 		}
 		return map;
 	}
-	
 	//get id of tourtype
 	public int tourtypeid(String name) {
 		int id=0;
@@ -109,7 +108,7 @@ public class TourDAO {
 	ViewMap viewMap;
 	public List<ViewMap> getimageviewmap(double lng) {
 		List<ViewMap> list=new ArrayList<>();
-		String sql="select image from tb_svimage ts where ts.lng_number=?";
+		String sql="select image from tb_svimage ts where ts.lat_number=?";
 		try {
 			preparedStatement=connection.prepareStatement(sql);
 			preparedStatement.setDouble(1, lng);
@@ -127,6 +126,30 @@ public class TourDAO {
 		
 		return list;
 	}
+	
+	public ViewMap listcontent(double lng){
+		List<ViewMap> list=new ArrayList<>();
+		String sql=	"select tourcategoryname,content_gt from "+
+					" tb_tourcategory tt join tb_location tl on"+
+					" tt.tourcategoryid=tl.tourcategoryid where tl.lat_number=?";
+		try {
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setDouble(1, lng);
+			resultSet=preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				viewMap = new ViewMap();
+				viewMap.setName(resultSet.getString(1));
+				viewMap.setContent(resultSet.getString(2));
+				list.add(viewMap);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error: "+e);
+		}
+		
+		return viewMap;
+	}
+	
 	public static void main(String[] args) {
 		TourDAO dao=new TourDAO();
 		//dao.locations(1);
@@ -142,6 +165,7 @@ public class TourDAO {
 		System.out.println(dao.tourtypeid("Đà Nẵng"));
 		//System.out.println("Đà Nẵng");
 		dao.lat_lng("Đà Nẵng");
+		
 		
 	}
 }
