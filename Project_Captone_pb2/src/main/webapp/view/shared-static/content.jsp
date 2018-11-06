@@ -1,98 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="banner">
-	<div class="banner-left ">
-		<div class="traveller"
-			style="background-image: url('${pageContext.request.contextPath}/static/image/1.jpg');background-size:cover;min-height:632px;">
-			<div class="container">
-				<h3></h3>
-				<p class="velit"></p>
-				<div class="wmuSlider example1">
-					<div class="wmuSliderWrapper">
-						<article style="position: absolute; width: 100%; opacity: 0;">
-							<div class="banner-wrap">
-								<div class="traveller-info">
-									<div class="traveller-info-left">
-										<h4>Tà Năng Phan Dũng – cung trekking đẹp nhất Việt Nam</h4>
-										<p>Cung đường với những ngọn đồi, thảo nguyên xanh mướt
-											màu cỏ sẽ khiến bạn gác lại tất cả những âu lo, bộn bề của
-											cuộc sống hàng ngày mà thả mình thư giãn giữa thiên nhiên đất
-											trờ</p>
-									</div>
-									<div class="traveller-info-right">
-										<img
-											src="${pageContext.request.contextPath}/static/image/tanang.jpg"
-											alt="" class="img-responsive" />
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-						</article>
-						<article style="position: absolute; width: 100%; opacity: 0;">
-							<div class="banner-wrap">
-								<div class="traveller-info">
-									<div class="traveller-info-left">
-										<h4>Du lịch Đà Lạt đi săn mây mù</h4>
-										<p>Được mệnh danh là "thành phố sương mù" hay "thành phố
-											mộng mơ", Đà Lạt hấp dẫn khách du lịch với sự lãng mạn, khí
-											hậu dễ chịu cùng những địa điểm tham quan thú vị.Dân yêu
-											Phượt mê mẩn bởi vẻ đẹp tình tứ của nó.</p>
-									</div>
-									<div class="traveller-info-right">
-										<img
-											src="${pageContext.request.contextPath}/static/image/9-4.jpg"
-											alt="" class="img-responsive" />
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-						</article>
-						<article style="position: absolute; width: 100%; opacity: 0;">
-							<div class="banner-wrap">
-								<div class="traveller-info">
-									<div class="traveller-info-left">
-										<h4>Cầu Vàng Đà Nẵng</h4>
-										<p>một công trình mới của Sun World Bà Nà H ills. Được
-											khởi công xây dựng vào 07/2017 tới 0 4/2018 thì hoàn thành,
-											thời gian gần đây đã đi vào hoạt động và đón những lượt khách
-											tham quan d u lịch Đà Nẵng đầu tiên.Sở hữu thiết kế vô cùng
-											độc đáo và mới lạ, chưa từng có ở Việt Nam</p>
-									</div>
-									<div class="traveller-info-right">
-										<img alt=""
-											src="${pageContext.request.contextPath}/static/image/2_1.jpg"
-											class="img-responsive" />
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-						</article>
-					</div>
-				</div>
-				<script type="text/javascript">
-								$('.example1').wmuSlider();
-							</script>
-			</div>
-		</div>
-	</div>
 	<div class="banner-right">
 		<div style="" class="br-col-1-image">
 			<img alt=""
-				src="${pageContext.request.contextPath}/static/image/Untitled.png">
+				src="${pageContext.request.contextPath}/static/image/indexheader.jpg">
 		</div>
 		<div class="br-col-2-op"></div>
+		<div class="br-col-2-op-form"></div>
 		<div class="br-col-3-form">
 			<div class="br-col-2-form-el form">
 				<div id="br-row-1-col-1">
-					<h4>Đặt tour du lịch</h4>
+					<h4>Tìm kiếm địa điểm du lịch</h4>
 				</div>
 				<div id="br-row-2-col-1">
 					<h5>Cùng những trải nghiệm tuyệt vời</h5>
 				</div>
-				<div id="br-row-3-col-1">
-				
-										
-				
+				<div id="br-row-3-col-1">	
 					<form action="${pageContext.request.contextPath}/viewmap" method="post">
 						<div class="child input">
 							<i class="fa fa-map-marker a"></i> <input class="input-field"
@@ -654,6 +578,28 @@
 				</div>
 			</div>
 			<div class="ct-row-2"></div>
+		</div>
+	</div>
+	<div class="content-element-part-4">
+		<div class="col-1 el-1">
+			<div class="image"><img alt="" src="${pageContext.request.contextPath}/static/image/singapore-skyline.jpg"></div>
+			<p><h4>Du lịch Singapore 3N4D...</h4></p>
+			<p>Giá:&nbsp<b style="color: #ff9e3e;">16.600.000VNĐ</b></p>
+		</div>
+		<div class="col-1 el-2">
+			<img alt="" src="${pageContext.request.contextPath}/static/image/hinhanhheader1.jpg">
+			<p><h4>Du lịch Nha Trang 4N3D...</h4></p>
+			<p>Giá:&nbsp <b style="color: #ff9e3e;">8.600.000VNĐ</b></p>
+		</div>
+		<div class="col-1 el-3">
+			<div class="image"><img alt="" src="${pageContext.request.contextPath}/static/image/Halong-Main-picture.jpg"></div>
+			<p><h4>Du lịch Hạ Long Bay 5N4D...</h4></p>
+			<p>Giá:&nbsp<b style="color: #ff9e3e;">8.900.000VNĐ</b></p>
+		</div>
+		<div class="col-1 el-4">
+			<div class="image"><img alt="" src="${pageContext.request.contextPath}/static/image/IMG_1153.jpg"></div>
+			<p><h4>Du lịch Quy Nhơn 3N2D...</h4></p>
+			<p>Giá:&nbsp <b style="color: #ff9e3e;">6.800.000VNĐ</b></p>
 		</div>
 	</div>
 </div>

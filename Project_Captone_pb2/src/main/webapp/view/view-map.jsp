@@ -53,12 +53,12 @@
 	        		coords:{lat:16.069079,lng: 108.167883}
 	        	}
         	];?*/
-        			<%int dem=0;%>
         //sng dung java;
        	var markers=[
 	   	 	<c:forEach items="${locations}" var="locations" varStatus="status">
 	   	 		{
 	     			coords:{lat:${locations.key},lng:${locations.value}},
+	     			icon:'${pageContext.request.contextPath}/static/image_viewmap/icongooglemap.png',
 		   			<my:handler-image var="images" lat="${locations.key}"></my:handler-image>
 		   		  	<my:handler-contents var="contents" lat="${locations.key}"></my:handler-contents>
 	            	content:'<div class="content">'+
@@ -93,7 +93,9 @@
 				position:props.coords,
 				map:map
 			});
-        	
+        	if(props.icon){
+        		marker.setIcon(props.icon);
+        	}
         	if(props.content){
         		 var infoWindow = new google.maps.InfoWindow({
         	        	content:props.content

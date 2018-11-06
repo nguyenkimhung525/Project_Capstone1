@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div class="container">
 				<div class="header-nav">
 					<nav class="navbar navbar-default">
 						<!-- Brand and toggle get grouped for better mobile display -->
@@ -35,4 +34,3 @@
 						<!-- /.navbar-collapse -->
 					</nav>
 				</div>
-			</div>

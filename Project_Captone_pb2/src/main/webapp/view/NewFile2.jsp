@@ -10,7 +10,6 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/viewmap.css">
 </head>
 <body>
-<my:handler-image var="" lng=""></my:handler-image>
 	<div class="content">
 		<my:handler-contents var="contents" lat="16.099534"></my:handler-contents>
 	<h2>${contents.name}</h2>
