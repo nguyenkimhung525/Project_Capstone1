@@ -30,16 +30,12 @@ public class HandlerController {
 		String img2="img2";
 		Map<Double, Double> locations=tourservice.getlistlocal(tourservice.gettourtypeid(tourType.getTourname()));
 		//List<Location> locationss=tourservice.getlistshowview(tourservice.gettourtypeid(tourType.getTourname()));
-		
 	//	List<Location> lc_image=tourservice.getlistimage();
 		Location location = tourservice.getlatlng(tourType.getTourname());
 		model.addAttribute("locations",locations);
 		model.addAttribute("local",location);
-		
 		//model.addAttribute("lc_image",lc_image);
-		
 		model.addAttribute("img2",img2);
-
 		return "view-map";
 	}	
 }

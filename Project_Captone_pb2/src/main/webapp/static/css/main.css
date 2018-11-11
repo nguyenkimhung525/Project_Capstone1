@@ -1189,6 +1189,9 @@ button:hover {
 	opacity: 0.88;
 	
 }
+.content .content-element-part-4 p,.content .content-element-part-4 h4{
+	padding-left: 10px;
+}
 /*------------Footer-------*/
 .footer{
 	position: absolute;

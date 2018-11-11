@@ -582,7 +582,7 @@
 	</div>
 	<div class="content-element-part-4">
 		<div class="col-1 el-1">
-			<div class="image"><img alt="" src="${pageContext.request.contextPath}/static/image/singapore-skyline.jpg"></div>
+			<div class="image"><img alt="" src="${pageContext.request.contextPath}/static/image/singapore-2014-150463478_singapore_s.jpg"></div>
 			<p><h4>Du lịch Singapore 3N4D...</h4></p>
 			<p>Giá:&nbsp<b style="color: #ff9e3e;">16.600.000VNĐ</b></p>
 		</div>
