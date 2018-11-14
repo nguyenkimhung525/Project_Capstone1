@@ -42,9 +42,6 @@
 				height: 100%;
 				width: 100%;
 				position: absolute;
-				 transition: opacity .25s ease-in-out;
-				  -moz-transition: opacity .25s ease-in-out;
-				  -webkit-transition: opacity .25s ease-in-out;
 			}
 		
 			.content .imageview .section #photosphere {
@@ -54,9 +51,7 @@
 			.content .imageview .section #photosphere1{
 				width: 100%;
 				height: 100%;
-				transition: opacity .25s ease-in-out;
-				  -moz-transition: opacity .25s ease-in-out;
-				  -webkit-transition: opacity .25s ease-in-out;
+				 
 			}
 			img{
 				width: 100px;
@@ -84,15 +79,24 @@
 				z-index: 10; 
 				display: none;
 			}
+			.fade{
+				animation-name:fade;
+				animation-duration:1.5s;
+			}
+			
+			@keyframes fade{
+				from {opacity: 0.6;}
+				to {opacity: 2;}
+			}
 		</style>
 </head>
 <body>
 <div class="content" id="clickim">
 	<div class="imageview">
-        <div class="section el1" >
+        <div class="section fade" >
 			<div id="photosphere"></div>
 		</div>
-        <div class="section el2">
+        <div class="section fade">
 			<div id="photosphere1"></div>
 		</div>
 	</div>
@@ -107,7 +111,11 @@
 		    time_anim:true,
 		    mousewheel: false,
 		    mousemove:true,
-		    anim_speed:'0.3rpm',	
+		    anim_speed:'0.3rpm',
+		    transition: {
+		        duration: 1500, // duration of transition in milliseconds
+		        loader: true // should display the loader ?
+		    },
 		    markers:[{
 			      id: 'text',
 			      longitude: 0,
@@ -160,7 +168,6 @@
 				console.log(a);
 			PSvvvvV.startAutorotate();
 		};
-
 		PSvvvvV.on('click', function(e) {
 			setTimeout(function(){
 				PSvvvvV.startAutorotate();
@@ -255,11 +262,9 @@
 	                dots[i].className = dots[i].className.replace(" active","");
 	            } */
 	            
-	 	  		   slides[index-1].style.visibility = 'visible';
-				     
+	 	  		   slides[index-1].style.visibility = 'visible';		     
 		}
 		showimage(index);
 		</script>
 	</body>
-
 </html>
