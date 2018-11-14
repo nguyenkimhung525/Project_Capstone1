@@ -45,7 +45,7 @@
 		</div>
 	</div>
 </div>
-		<script type="text/javascript">
+	<script type="text/javascript">
 		var div = document.getElementById('photosphere');
 		var PSvvvvV = new PhotoSphereViewer({
 		    panorama: '/Project_Captone_pb2/static/image/https___photo-sphere-viewer.js.org_assets_Bryce-Canyon-National-Park-Mark-Doliner.jpg',
@@ -288,38 +288,38 @@
 
 			
 		</script>
-		 <script type="text/javascript">
-		 var row1 = document.querySelector('.nv-row-1');
-		 var row2 = document.querySelector('.nv-row-2');
-		 var row3 = document.querySelector('.nv-row-3');
-		 var img_click1 = document.querySelector('.img-row1');
-		 var img_click2 = document.querySelector('.img-row2');
-		 var img_click3 = document.querySelector('.img-row3');
-		 var slidess =document.querySelectorAll('.section');
-		 img_click1.onclick=function(){
-			 slidess[0].style.visibility = 'visible';
-			 slidess[1].style.visibility = 'hidden';
-			 slidess[2].style.visibility = 'hidden';
-			 row1.style.border='1.7px solid red';
-	   		 row2.style.border='1px solid white';
-	   		 row3.style.border='1px solid white';
-		 }	
-		 img_click2.onclick=function(){
-			 row2.style.border='1.7px solid red';
-	   		 row1.style.border='1px solid white';
-	   		row3.style.border='1px solid white';
-			 slidess[1].style.visibility = 'visible';
-			 slidess[0].style.visibility = 'hidden';
-			 slidess[2].style.visibility = 'hidden';
-		 }
-		 img_click3.onclick=function(){
-			 row3.style.border='1.7px solid red';
-	   		 row1.style.border='1px solid white';
-	   		row2.style.border='1px solid white';
-			 slidess[2].style.visibility = 'visible';
-			 slidess[1].style.visibility = 'hidden';
-			 slidess[0].style.visibility = 'hidden';
-		 }
+	<script type="text/javascript">
+		var row1 = document.querySelector('.nv-row-1');
+		var row2 = document.querySelector('.nv-row-2');
+		var row3 = document.querySelector('.nv-row-3');
+		var img_click1 = document.querySelector('.img-row1');
+		var img_click2 = document.querySelector('.img-row2');
+		var img_click3 = document.querySelector('.img-row3');
+		var slidess = document.querySelectorAll('.section');
+		img_click1.onclick = function() {
+			slidess[0].style.visibility = 'visible';
+			slidess[1].style.visibility = 'hidden';
+			slidess[2].style.visibility = 'hidden';
+			row1.style.border = '1.7px solid red';
+			row2.style.border = '1px solid white';
+			row3.style.border = '1px solid white';
+		}
+		img_click2.onclick = function() {
+			row2.style.border = '1.7px solid red';
+			row1.style.border = '1px solid white';
+			row3.style.border = '1px solid white';
+			slidess[1].style.visibility = 'visible';
+			slidess[0].style.visibility = 'hidden';
+			slidess[2].style.visibility = 'hidden';
+		}
+		img_click3.onclick = function() {
+			row3.style.border = '1.7px solid red';
+			row1.style.border = '1px solid white';
+			row2.style.border = '1px solid white';
+			slidess[2].style.visibility = 'visible';
+			slidess[1].style.visibility = 'hidden';
+			slidess[0].style.visibility = 'hidden';
+		}
 		/* for (var i = 0; i < img_click.length; i++) {
 			    (function(protectedIndex){
 			    	img_click[i].onclick= function() {
@@ -335,120 +335,126 @@
 			        }
 			    })(i);
 		};
- */		var index=1;	
-		var str="hidden";
+		 */
+		var index = 1;
+		var str = "hidden";
 		var width = 0;
 		function plusSlides(n) {
-		
-			console.log('n click: '+n);
-			var zo=15;
+
+			console.log('n click: ' + n);
+			var zo = 15;
 			setTimeout(function() {
 				width++;
-				console.log('width: '+width);
-				showimage(index=n);
-			}, 2650);   
-	           width=0;
-	           if(n==3){
-	        	   PSV.animate({
-		  				longitude: -0.2,
-		  			    latitude: -0.2
-		  			},1200);
-	        	   setTimeout(function() {
-		        	   document.getElementById("event_click2").style['pointer-events'] = 'none';
-		        	   setTimeout(function() {
-			        	   document.getElementById("event_click2").style['pointer-events'] = 'visible';
-						}, 2650);
-		        	   var set=setInterval(function(){
-			   				if(zo>85){
-			   					clearInterval(set);
-			   					zo=15;
-			   					PSV.zoom(10);
-			   				}
-			   				else {
-			   					zo=zo+2;
-			   					PSV.zoom(zo);
-			   				}
-			   			}, 40);
-			   			PSV2.startAutorotate();
-			   			row3.style.border='1.7px solid red';
-			   			row1.style.border='1px solid white';
-			   			row2.style.border='1px solid white';
-	        	   },1200)
-	           }
-	           if(n==2){
-	        	   PSvvvvV.animate({
-	  				 longitude:-0.2,
-	  			     latitude: -0.2
-	  				},1200);
-	        	   setTimeout(function() {
-		        	   document.getElementById("event_click1").style['pointer-events'] = 'none';
-		        	   setTimeout(function() {
-			        	   document.getElementById("event_click1").style['pointer-events'] = 'visible';
-						}, 2650);
-	        		   var set=setInterval(function(){
-	   	   				if(zo>85){
-	   	   					clearInterval(set);
-	   	   					zo=15;
-	   	   					PSvvvvV.zoom(10);
-	   	   				}
-	   	   				else {
-	   	   					zo=zo+2;
-	   	   					PSvvvvV.zoom(zo);
-	   	   				}
-	   	   			}, 40);
-	        		   PSV.startAutorotate();
-		        	   	row2.style.border='1.7px solid red';
-		        	   	row1.style.border='1px solid white';
-		        	   	row3.style.border='1px solid white';
-				}, 1200); 	
-	           }
-	           if(n==4){
-	        	   PSV2.animate({
-		  				 longitude: -0.2,
-		  			     latitude: -0.2
-		  			},1200);
-	        	   setTimeout(function() {
-		        	   document.getElementById("event_click3").style['pointer-events'] = 'none';
-		        	   setTimeout(function() {
-			        	   document.getElementById("event_click3").style['pointer-events'] = 'visible';
-						}, 2650);
-		        	   var set=setInterval(function(){
-			   				if(zo>85){
-			   					clearInterval(set);
-			   					zo=15;
-			   					PSV2.zoom(10);
-			   				}
-			   				else {
-			   					zo=zo+2;
-			   					PSV2.zoom(zo);
-			   				}
-			   			}, 50);
-		        	   PSvvvvV.startAutorotate();
-		        	   	row1.style.border='1.7px solid red';
-		        	   	row2.style.border='1px solid white';
-		        	   	row3.style.border='1px solid white';
-		           },1200);
+				console.log('width: ' + width);
+				showimage(index = n);
+			}, 2650);
+			width = 0;
+			if (n == 3) {
+				PSV.animate({
+					longitude : -0.2,
+					latitude : -0.2
+				}, 1200);
+				setTimeout(
+						function() {
+							document.getElementById("event_click2").style['pointer-events'] = 'none';
+							setTimeout(
+									function() {
+										document.getElementById("event_click2").style['pointer-events'] = 'visible';
+									}, 2650);
+							var set = setInterval(function() {
+								if (zo > 85) {
+									clearInterval(set);
+									zo = 15;
+									PSV.zoom(10);
+								} else {
+									zo = zo + 2;
+									PSV.zoom(zo);
+								}
+							}, 40);
+							PSV2.startAutorotate();
+							row3.style.border = '1.7px solid red';
+							row1.style.border = '1px solid white';
+							row2.style.border = '1px solid white';
+						}, 1200)
+			}
+			if (n == 2) {
+				PSvvvvV.animate({
+					longitude : -0.2,
+					latitude : -0.2
+				}, 1200);
+				setTimeout(
+						function() {
+							document.getElementById("event_click1").style['pointer-events'] = 'none';
+							setTimeout(
+									function() {
+										document.getElementById("event_click1").style['pointer-events'] = 'visible';
+									}, 2650);
+							var set = setInterval(function() {
+								if (zo > 85) {
+									clearInterval(set);
+									zo = 15;
+									PSvvvvV.zoom(10);
+								} else {
+									zo = zo + 2;
+									PSvvvvV.zoom(zo);
+								}
+							}, 40);
+							PSV.startAutorotate();
+							row2.style.border = '1.7px solid red';
+							row1.style.border = '1px solid white';
+							row3.style.border = '1px solid white';
+						}, 1200);
+			}
+			if (n == 4) {
+				PSV2.animate({
+					longitude : -0.2,
+					latitude : -0.2
+				}, 1200);
+				setTimeout(
+						function() {
+							document.getElementById("event_click3").style['pointer-events'] = 'none';
+							setTimeout(
+									function() {
+										document.getElementById("event_click3").style['pointer-events'] = 'visible';
+									}, 2650);
+							var set = setInterval(function() {
+								if (zo > 85) {
+									clearInterval(set);
+									zo = 15;
+									PSV2.zoom(10);
+								} else {
+									zo = zo + 2;
+									PSV2.zoom(zo);
+								}
+							}, 50);
+							PSvvvvV.startAutorotate();
+							row1.style.border = '1.7px solid red';
+							row2.style.border = '1px solid white';
+							row3.style.border = '1px solid white';
+						}, 1200);
+			}
 		}
-		}
-		function showimage(n) { 
-			
-			 var i;
-			 console.log('n: '+n);
-	           var slides =document.querySelectorAll('.section');
-	        //   var dots=document.querySelectorAll('.dots');
-	           if(n>slides.length){index=1;}
-	            console.log('lenght: '+slides.length);
-	           for (i=0;i<slides.length;i++) {
-	              slides[i].style.visibility='hidden';
-	           }
-	          /*  for ( i = 0; i < dots.length; i++) {
-	                dots[i].className = dots[i].className.replace(" active","");
-	            } */
-	 	  		   slides[index-1].style.visibility = 'visible';
-				     
+		function showimage(n) {
+
+			var i;
+			console.log('n: ' + n);
+			var slides = document.querySelectorAll('.section');
+			//   var dots=document.querySelectorAll('.dots');
+			if (n > slides.length) {
+				index = 1;
+			}
+			console.log('lenght: ' + slides.length);
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.visibility = 'hidden';
+			}
+			/*  for ( i = 0; i < dots.length; i++) {
+			      dots[i].className = dots[i].className.replace(" active","");
+			  } */
+			slides[index - 1].style.visibility = 'visible';
+
 		}
 		showimage(index);
-		</script>
-	</body>
+	</script>
+</body>
 
 </html>
