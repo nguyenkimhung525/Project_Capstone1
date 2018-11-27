@@ -22,7 +22,7 @@
 						<div class="collapse navbar-collapse nav-wil"
 							id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="hvr-sweep-to-bottom active"><a href="main.jsp">Trang
+								<li class="hvr-sweep-to-bottom"><a href="${pageContext.request.contextPath}/home">Trang
 										Chủ</a></li>
 								<li class="hvr-sweep-to-bottom"><a href="#">Dịch Vụ</a></li>
 								<li class="hvr-sweep-to-bottom"><a href="#">Khuyến Mãi</a></li>

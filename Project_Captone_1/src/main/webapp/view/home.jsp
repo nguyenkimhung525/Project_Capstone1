@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,21 +19,32 @@
 	type="text/javascript"></script>
 <link href="${pageContext.request.contextPath}/static/css/main.css"
 	type="text/css" rel="stylesheet">
+	
 <title>Home Page</title>
 </head>
 <body>
-	<div class="container">
-		<div class="header">
-			<%@include file="./shared-static/header.jsp"%>
+	<div class="all-container">
+		<div class="image-home">
+			<img alt="" src="${pageContext.request.contextPath}/static/image/images682811_Anh_2.jpg">
 		</div>
-		<div class="container-content">
-			<%@include file="./shared-static/content.jsp" %>
-		</div>
-		<div style="clear: both;"></div>
-		<div class="footer">
-			<%@include file="./shared-static/footer.jsp" %>
+		<div class="container">
+	
+			<div class="header" style="">
+				<div class="header-bg"></div>
+				<%@include file="./shared-static/header.jsp"%>
+			</div>
+			<div class="container-content">	
+				<c:if test="${userclick==true}">
+					<%@include file="./shared-static/content.jsp" %>
+				</c:if>
+			</div>
+			<div style="clear: both;"></div>
+			<div class="footer">
+				<%@include file="./shared-static/footer.jsp" %>
+			</div>
 		</div>
 	</div>
+	
 	<script type="text/javascript">
 		var myInput=document.getElementById("myInput");
 		var dpmenu=document.getElementById('menu');

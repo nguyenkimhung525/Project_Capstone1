@@ -144,18 +144,25 @@
 <div style="clear: both;"></div>
 <div class="content">
 	<div class="content-element-part-1">
-		<div class="ct-row-1 header">
-			<h2 style="padding-bottom: 5px;">Địa điểm nổi bật</h2>
-			<p>Chăm chỉ cả năm. Đến lúc tận hưởng</p>
+		<div class="ct-part-1-br"></div>
+		<div class="header-hd">
+			<div class="ct-row-1 header">
+				<h2 style="padding-bottom: 5px;">Địa điểm nổi bật</h2>
+				<div></div><br>
+				<p>Trải dọc dải đất hình chữ S là sự kết hợp hài hòa giữa
+				 các thắng cảnh tự nhiên và công trình kiến trúc tinh tế đáng
+				  để trải nghiệm ít nhất một lần trong đời.  </p>
+			</div>
 		</div>
 		<div class="ct-row-2">
 			<div class="ct-row-2-el-1">
 				<div class="el col-1 ">
 					<div class="col-1-img">
 						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/maxresdefault.jpg">
+							src="https://interfacetoursandtravel.com/wp-content/plugins/travel-agency-companion//includes/images/img4.jpg">
 					</div>
 					<div class="col-1-ct">
+						<div class="ct-op-ct-r"></div>
 						<div class="ct-op"></div>
 						<div class="ct">
 							<div class="ct-el-1">
@@ -167,13 +174,13 @@
 									nổi tiếng.</p>
 							</div>
 							<div class="ct-el-2">
-								<p class="a">
-									Giá: <b style="color: #ffa477;">5.900.000VNĐ</b>
+								<p class="ct-el-2-childfirst">
+									<span>Giá: <b style="color: #ffa477;">5.900.000VNĐ</b></span>
 								</p>
-								<p>
+								<p class="ct-el-2-child-2">
 									<i class="fa fa-calendar"></i>17/11/2019
 								</p>
-								<p>
+								<p class="ct-el-2-child-3">
 									<button type="submit">XEM THÊM</button>
 								</p>
 							</div>
@@ -183,9 +190,10 @@
 				<div class="el col-2">
 					<div class="col-2-img">
 						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/singapore-skyline-with-merlion.jpg">
+							src="https://interfacetoursandtravel.com/wp-content/plugins/travel-agency-companion//includes/images/img3.jpg">
 					</div>
 					<div class="col-2-ct">
+						<div class="ct-op-ct-r"></div>
 						<div class="ct-op"></div>
 						<div class="ct">
 							<div class="ct-el-1">
@@ -193,16 +201,16 @@
 									<b>Singapore</b>
 								</h4>
 								<p class="p" style="font-style: italic;">Singapore nổi tiếng
-									với rất nhiều chương trình biểu diễn nhạc nước hấp dẫn</p>
+									với rất nhiều chương trình biểu diễn nhạc nước hấp dẫn.Thành phố tuyệt đẹp về đêm</p>
 							</div>
 							<div class="ct-el-2">
-								<p class="a">
+								<p class="ct-el-2-childfirst">
 									Giá: <b style="color: #ffa477;">10.999.000VNĐ</b>
 								</p>
-								<p>
+								<p class="ct-el-2-child-2" style="display:block;margin-top:5px">
 									<i class="fa fa-calendar"></i>17/11/2019
 								</p>
-								<p>
+								<p class="ct-el-2-child-3">
 									<button type="submit">XEM THÊM</button>
 								</p>
 							</div>
@@ -212,9 +220,10 @@
 				<div class="el col-3">
 					<div class="col-3-img">
 						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/dailoan.jpg">
+							src="https://interfacetoursandtravel.com/wp-content/plugins/travel-agency-companion//includes/images/img6.jpg">
 					</div>
 					<div class="col-3-ct">
+											<div class="ct-op-ct-r"></div>
 						<div class="ct-op"></div>
 						<div class="ct">
 							<div class="ct-el-1">
@@ -226,309 +235,60 @@
 									du lịch hấp dẫn.</p>
 							</div>
 							<div class="ct-el-2">
-								<p class="a">
+								<p class="ct-el-2-childfirst">
 									Giá: <b style="color: #ffa477;">7.600.000VNĐ</b>
 								</p>
-								<p>
+								<p class="ct-el-2-child-2" style="display:block;margin-top:5px">
 									<i class="fa fa-calendar"></i>17/11/2019
 								</p>
-								<p>
+								<p class="ct-el-2-child-3">
 									<button type="submit">XEM THÊM</button>
 								</p>
 							</div>
 						</div>
 					</div>
+					
 				</div>
-			</div>
-			<div class="ct-row-2-el-2">
-				<div class="el col-1">
-					<div class="col-1-img">
+				<div class="el col-4">
+					<div class="col-4-img">
 						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/thanh-pho-tokyo-nhat-ban.jpg">
+							src="https://interfacetoursandtravel.com/wp-content/plugins/travel-agency-companion//includes/images/img5.jpg">
 					</div>
-					<div class="col-1-ct">
-						<div class="ct-op"></div>
-						<div class="ct">
-							<div class="ct-el-1">
-								<h4>
-									<b>Nhật Bản </b>
-								</h4>
-								<p class="p" style="font-style: italic;">Nhật Bản, xứ sở hoa
-									anh đào, vẫn luôn là nơi thu hút rất nhiều khách du lịch trên
-									thế giới.</p>
-							</div>
-							<div class="ct-el-2">
-								<p class="a">
-									Giá: <b style="color: #ffa477;">17.900.000VNĐ</b>
-								</p>
-								<p>
-									<i class="fa fa-calendar"></i>17/11/2019
-								</p>
-								<p>
-									<button type="submit">XEM THÊM</button>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="el col-2">
-					<div class="col-2-img">
-						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/thailan.jpg">
-					</div>
-					<div class="col-2-ct">
-						<div class="ct-op"></div>
-						<div class="ct">
-							<div class="ct-el-1">
-								<h4>
-									<b>Thái Lan</b>
-								</h4>
-								<p class="p" style="font-style: italic;">nơi con người thân
-									thiện và vui vẻ, đất nước nhiệt đới độc đáo, nền văn hóa và
-									lịch sử lâu đời.</p>
-							</div>
-							<div class="ct-el-2">
-								<p class="a">
-									Giá: <b style="color: #ffa477;">8.600.000VNĐ</b>
-								</p>
-								<p>
-									<i class="fa fa-calendar"></i>17/11/2019
-								</p>
-								<p>
-									<button type="submit">XEM THÊM</button>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="el col-3">
-					<div class="col-3-img">
-						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/Song-han-da-nang-mytour-1.jpg">
-					</div>
-					<div class="col-3-ct">
+					<div class="col-4-ct">
 						<div class="ct-op"></div>
 						<div class="ct">
 							<div class="ct-el-1">
 								<h4>
 									<b>Đà Nẵng</b>
 								</h4>
-								<p class="p" style="font-style: italic;">Đà Nẵng có nhiều
-									danh thắng tuyệt đẹp say lòng du khách như Ngũ Hành Sơn, Bà Nà,
+								<p class="p" style="font-style: italic;">danh thắng tuyệt đẹp say lòng du khách như Ngũ Hành Sơn, Bà Nà,
 									bán đảo Sơn Trà...</p>
 							</div>
 							<div class="ct-el-2">
-								<p class="a">
-									Giá: <b style="color: #ffa477;">6.800.000VNĐ</b>
-								</p>
-								<p>
-									<i class="fa fa-calendar"></i>17/11/2019
-								</p>
-								<p>
-									<button type="submit">XEM THÊM</button>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="content-element-part-2">
-		<div class="ct-row-1 header">
-			<h2 style="padding-bottom: 5px;">Du lịch giá tốt</h2>
-			<p>Lên rừng xuống biển. Trọn vẹn Việt Nam</p>
-		</div>
-		<div class="ct-row-2">
-			<div class="ct-row-2-el-1">
-				<div class="el col-1 ">
-					<div class="col-1-img">
-						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/mykhedn.jpg">
-					</div>
-					<div class="col-1-ct">
-						<div class="ct-op"></div>
-						<div class="ct">
-							<div class="ct-el-1">
-								<h4>
-									<b>Đà Nẵng</b>
-								</h4>
-								<p class="p" style="font-style: italic;">Đà Nẵng có nhiều
-									danh thắng tuyệt đẹp say lòng du khách như Ngũ Hành Sơn, Bà Nà,
-									bán đảo Sơn Trà...</p>
-							</div>
-							<div class="ct-el-2">
-								<p class="a">
-									Giá: <b style="color: #ffa477;">6.800.000VNĐ</b>
-								</p>
-								<p>
-									<i class="fa fa-calendar"></i>17/11/2019
-								</p>
-								<p>
-									<button type="submit">XEM THÊM</button>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="el col-2">
-					<div class="col-2-img">
-						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/quynhon.jpg">
-					</div>
-					<div class="col-2-ct">
-						<div class="ct-op"></div>
-						<div class="ct">
-							<div class="ct-el-1">
-								<h4>
-									<b>Quy Nhơn</b>
-								</h4>
-								<p class="p" style="font-style: italic;">Thắng cảnh nổi
-									tiếng với vẻ đẹp hoang sơ.Bạn sẽ có những góc chụp hình và ngắm
-									cảnh tuyệt đẹp.</p>
-							</div>
-							<div class="ct-el-2">
-								<p class="a">
-									Giá: <b style="color: #ffa477;">5.000.000VNĐ</b>
-								</p>
-								<p>
-									<i class="fa fa-calendar"></i>17/11/2019
-								</p>
-								<p>
-									<button type="submit">XEM THÊM</button>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="el col-3">
-					<div class="col-3-img">
-						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/dao-jeju-han-quoc-dep-1.jpg">
-					</div>
-					<div class="col-3-ct">
-						<div class="ct-op"></div>
-						<div class="ct">
-							<div class="ct-el-1">
-								<h4>
-									<b>Hàn Quốc</b>
-								</h4>
-								<p class="p" style="font-style: italic;">Hàn Quốc xứ kimchi
-									là nơi du lịch với cảnh đẹp và văn hóa tuyệt vời.</p>
-							</div>
-							<div class="ct-el-2">
-								<p class="a">
-									Giá: <b style="color: #ffa477;">12.900.000VNĐ</b>
-								</p>
-								<p>
-									<i class="fa fa-calendar"></i>17/11/2019
-								</p>
-								<p>
-									<button type="submit">XEM THÊM</button>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ct-row-2-el-2">
-				<div class="el col-1">
-					<div class="col-1-img">
-						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/ninhbinh.jpg">
-					</div>
-					<div class="col-1-ct">
-						<div class="ct-op"></div>
-						<div class="ct">
-							<div class="ct-el-1">
-								<h4>
-									<b> Ninh Bình</b>
-								</h4>
-								<p class="p" style="font-style: italic;">Tràng An, Tam Cốc,
-									Bích Động là khu du lịch nổi tiếng nhất của Ninh Bình hiện
-									nay..</p>
-							</div>
-							<div class="ct-el-2">
-								<p class="a">
+								<p class="ct-el-2-childfirst">
 									Giá: <b style="color: #ffa477;">7.600.000VNĐ</b>
 								</p>
-								<p>
+								<p class="ct-el-2-child-2" style="display:block;margin-top:5px">
 									<i class="fa fa-calendar"></i>17/11/2019
 								</p>
-								<p>
+								<p class="ct-el-2-child-3">
 									<button type="submit">XEM THÊM</button>
 								</p>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="el col-2">
-					<div class="col-2-img">
-						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/hue.jpg">
-					</div>
-					<div class="col-2-ct">
-						<div class="ct-op"></div>
-						<div class="ct">
-							<div class="ct-el-1">
-								<h4>
-									<b>Huế</b>
-								</h4>
-								<p class="p" style="font-style: italic;">Nói đến Huế bạn
-									thường nghĩ đến các cung điện, đền đài mang hơi thở cổ xưa một
-									thời vua chúa huy hoàng.</p>
-							</div>
-							<div class="ct-el-2">
-								<p class="a">
-									Giá: <b style="color: #ffa477;">5.800.000VNĐ</b>
-								</p>
-								<p>
-									<i class="fa fa-calendar"></i>17/11/2019
-								</p>
-								<p>
-									<button type="submit">XEM THÊM</button>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="el col-3">
-					<div class="col-3-img">
-						<img alt=""
-							src="${pageContext.request.contextPath}/static/image/2_1.jpg">
-					</div>
-					<div class="col-3-ct">
-						<div class="ct-op"></div>
-						<div class="ct">
-							<div class="ct-el-1">
-								<h4>
-									<b>Quảng Nam</b>
-								</h4>
-								<p class="p" style="font-style: italic;">Không chỉ có di sản
-									thế giới phố cổ Hội An và Thánh Địa Mỹ Sơn… mà còn sở hữu nhiều
-									bãi biển đẹp.</p>
-							</div>
-							<div class="ct-el-2">
-								<p class="a">
-									Giá: <b style="color: #ffa477;">8.000.000VNĐ</b>
-								</p>
-								<p>
-									<i class="fa fa-calendar"></i>17/11/2019
-								</p>
-								<p>
-									<button type="submit">XEM THÊM</button>
-								</p>
-							</div>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
 	</div>
+	
 	<div class="content-element-part-3">
+		<div class="ct-part-1-br"></div>
 		<div class="part-2-row-1 header">
 			<h2>Điểm đến yêu thích trong nước</h2>
-			<p>Bao la thế giới. Bốn bể là nhà</p>
+			<div></div>	
+			<p style="display: block;margin-top: 5px;">Không cần phải đi du lịch nước ngoài, Việt Nam còn rất nhiều những cảnh đẹp không thua gì tranh vẽ. Bạn chỉ cần lựa chọn địa điểm rồi xách ba lô lên và đi.</p>
 		</div>
 		<div class="part-2-row-2 content">
 			<div class="ct-row-1">
@@ -581,25 +341,30 @@
 		</div>
 	</div>
 	<div class="content-element-part-4">
-		<div class="col-1 el-1">
-			<div class="image"><img alt="" src="${pageContext.request.contextPath}/static/image/singapore-2014-150463478_singapore_s.jpg"></div>
-			<p><h4>Du lịch Singapore 3N4D...</h4></p>
-			<p>Giá:&nbsp<b style="color: #ff9e3e;">16.600.000VNĐ</b></p>
+		<div class="part-4-el-br">
 		</div>
-		<div class="col-1 el-2">
-			<img alt="" src="${pageContext.request.contextPath}/static/image/hinhanhheader1.jpg">
-			<p><h4>Du lịch Nha Trang 4N3D...</h4></p>
-			<p>Giá:&nbsp <b style="color: #ff9e3e;">8.600.000VNĐ</b></p>
+		<div class="part-4-el-content">
+			<div class="col-1 el-1">
+				<div class="image"><img alt="" src="${pageContext.request.contextPath}/static/image/singapore-2014-150463478_singapore_s.jpg"></div>
+				<p><h4>Du lịch Singapore 3N4D...</h4></p>
+				<p>Giá:&nbsp<b style="color: #ff9e3e;">16.600.000VNĐ</b></p>
+			</div>
+			<div class="col-1 el-2">
+				<img alt="" src="${pageContext.request.contextPath}/static/image/hinhanhheader1.jpg">
+				<p><h4>Du lịch Nha Trang 4N3D...</h4></p>
+				<p>Giá:&nbsp <b style="color: #ff9e3e;">8.600.000VNĐ</b></p>
+			</div>
+			<div class="col-1 el-3">
+				<div class="image"><img alt="" src="${pageContext.request.contextPath}/static/image/Halong-Main-picture.jpg"></div>
+				<p><h4>Du lịch Hạ Long Bay 5N4D...</h4></p>
+				<p>Giá:&nbsp<b style="color: #ff9e3e;">8.900.000VNĐ</b></p>
+			</div>
+			<div class="col-1 el-4">
+				<div class="image"><img alt="" src="${pageContext.request.contextPath}/static/image/IMG_1153.jpg"></div>
+				<p><h4>Du lịch Quy Nhơn 3N2D...</h4></p>
+				<p>Giá:&nbsp <b style="color: #ff9e3e;">6.800.000VNĐ</b></p>
+			</div>
 		</div>
-		<div class="col-1 el-3">
-			<div class="image"><img alt="" src="${pageContext.request.contextPath}/static/image/Halong-Main-picture.jpg"></div>
-			<p><h4>Du lịch Hạ Long Bay 5N4D...</h4></p>
-			<p>Giá:&nbsp<b style="color: #ff9e3e;">8.900.000VNĐ</b></p>
-		</div>
-		<div class="col-1 el-4">
-			<div class="image"><img alt="" src="${pageContext.request.contextPath}/static/image/IMG_1153.jpg"></div>
-			<p><h4>Du lịch Quy Nhơn 3N2D...</h4></p>
-			<p>Giá:&nbsp <b style="color: #ff9e3e;">6.800.000VNĐ</b></p>
-		</div>
+		
 	</div>
 </div>

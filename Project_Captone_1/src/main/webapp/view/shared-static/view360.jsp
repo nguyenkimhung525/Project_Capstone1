@@ -1,24 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-
-<head>
-<meta charset="utf-8" />
-<title>Photo Sphere Viewer</title>
-<link href="${pageContext.request.contextPath}/static/css/photo-sphere-viewer.min.css" type="text/css" rel="stylesheet">
-<script src="${pageContext.request.contextPath}/static/js/three.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/static/js/D.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/static/js/doT.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/static/js/uevent.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/static/js/photo-sphere-viewer.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/static/js/jquery-1.11.2.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/static/js/Projector.js" type="text/javascript"></script>
-<link href="${pageContext.request.contextPath}/static/css/view360.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-	<div class="content-view" id="clickim">
+<div class="content-view" id="clickim">
 		<div class="imageview">
 			<div class="section el1">
 				<div id="photosphere"></div>
@@ -495,7 +477,3 @@
 			if(audio.volume==0.15)clearInterval(interval_obj);
 			}, 1000);
 	</script>
-
-</body>
-
-</html>

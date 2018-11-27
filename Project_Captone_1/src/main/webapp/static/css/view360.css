@@ -1,22 +1,17 @@
 @charset "UTF-8";
 
-html, body {
-	margin: 0;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
 
-html, body .content {
+.content-view {
 	width: 100%;
 	height: 100%;
 	position: relative;
 	margin: auto;
 	border: 1px solid transparent;
+	left: 0px;
+	top:0;
 }
 
-.content .imageview {
-	height: 100%;
+.content-view .imageview {
 	width: 100%;
 	position: absolute;
 	z-index: 0;
@@ -27,27 +22,27 @@ html, body .content {
 	padding: 0;
 }
 
-.content .imageview .section {
+.content-view .imageview .section {
 	visibility: hidden;
-	height: 100%;
+	height: 595px;
 	width: 100%;
 	position: absolute;
 	transition: opacity .25s ease-in-out;
 	-moz-transition: opacity .25s ease-in-out;
 	-webkit-transition: opacity .25s ease-in-out;
 }
-.content .imageview .section #photosphere {
+.content-view .imageview .section #photosphere {
 	width: 100%;
 	height: 100%;
 }
-.content .imageview .section #photosphere1 {
+.content-view .imageview .section #photosphere1 {
 	width: 100%;
 	height: 100%;
 	transition: opacity .25s ease-in-out;
 	-moz-transition: opacity .25s ease-in-out;
 	-webkit-transition: opacity .25s ease-in-out;
 }
-.content .imageview .section #photosphere2{
+.content-view .imageview .section #photosphere2{
 	width: 100%;
 	height: 100%;
 	transition: opacity .25s ease-in-out;
@@ -55,8 +50,8 @@ html, body .content {
 	-webkit-transition: opacity .25s ease-in-out;
 }
 img {
-	width: 100px;
-	height: 50px;
+	width: 98px;
+	height: 48px;
 }
 
 .div {
@@ -103,7 +98,7 @@ img {
 }
 
 /*----------navigation----------*/
-.content .navigation{
+.content-view .navigation{
 	position: absolute;
 	z-index: 10;
 	border: 1px solid transparent;
@@ -114,13 +109,13 @@ img {
 	width: 110px;
 	height: 70px;
 	position: relative;
-	border: 1.7px solid red;
+	border: 1.88px solid red;
 	border-radius: 2.4px;
 	
 }
 .navigation .nv-row-1 img{
-	width: 110px;
-	height: 70px;
+	width: 108px;
+	height: 68px;
 	position: absolute;
 }
 .navigation img:hover{
@@ -147,8 +142,8 @@ img {
     color: white; 
 }
 .navigation .nv-row-2 img{
-	width: 110px;
-	height: 70px;
+	width: 108px;
+	height: 68px;
 }
 .navigation .nv-row-3{
 	margin: 7px 0;
@@ -165,23 +160,21 @@ img {
     color: white; 
 }
 .navigation .nv-row-3 img{
-	width: 110px;
-	height: 70px;
+	width: 108px;
+	height: 68px;
 }		
 
 
-
 /*----------audio css------*/
-
-.content .audio{
+.content-view .audio{
 	position: absolute;
 	z-index: 10;
 	border: 1px solid transparent;
-	bottom: 10px;
+	bottom: 6px;
 	left: 238px;
 }
 .audio .contain-audio{
-	height:16px;
+	height:20px;
 	width:300px;
 	border: 1px solid transparent;
 	position: relative;

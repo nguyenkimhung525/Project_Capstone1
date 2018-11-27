@@ -38,4 +38,16 @@ public class HandlerController {
 		model.addAttribute("img2",img2);
 		return "view-map";
 	}	
+	@RequestMapping(value="/home")
+	public String home(Model model) {
+		boolean flag=true;
+		model.addAttribute("userclick",flag);
+		return "home";
+	}
+	@RequestMapping(value="/booking")
+	public String booking(Model model) {
+		boolean flag=true;
+		model.addAttribute("clickview360",flag);
+		return "booking";
+	}
 }
