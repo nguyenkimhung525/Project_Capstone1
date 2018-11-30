@@ -70,7 +70,7 @@
 	    				'</c:forEach>'+
 	       			'</div>'+
 	       			'<div class="ct view">'+
-	       				'<a href="${pageContext.request.contextPath}/booking"><img alt="" src="${pageContext.request.contextPath}/static/image/view360do.PNG"><i>Chế độ hình ảnh<br/> view 360°</i>'+
+	       				'<a href="${pageContext.request.contextPath}/booking?lat=${locations.key} & lng=${locations.value}"><img alt="" src="${pageContext.request.contextPath}/static/image/view360do.PNG"><i>Chế độ hình ảnh<br/> view 360°</i>'+
 	       			'</div>'+
 	       		'</div>'
 	     		}<c:if test="${!status.last}">,</c:if>

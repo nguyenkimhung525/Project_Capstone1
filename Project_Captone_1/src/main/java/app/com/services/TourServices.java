@@ -3,6 +3,8 @@ package app.com.services;
 import java.util.List;
 import java.util.Map;
 
+import app.com.entities.DetailTour;
+import app.com.entities.DetailTourForm;
 import app.com.entities.Location;
 
 public interface TourServices {
@@ -16,5 +18,9 @@ public interface TourServices {
 	public List<Location> getlistimage();
 
 	public List<Location> getlistshowview(int gettourtypeid);
+
+	public List<DetailTour> getlistdetail(Double lat);
+
+	public DetailTourForm getdetailform(Double lat);
 
 }

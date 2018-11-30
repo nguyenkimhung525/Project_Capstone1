@@ -10,6 +10,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import app.com.business.HandlerDate;
+import app.com.entities.DetailTour;
+import app.com.entities.DetailTourForm;
 import app.com.entities.Location;
 import app.com.entities.TourType;
 import app.com.entities.ViewMap;
@@ -23,7 +26,10 @@ public class TourDAO {
 	PreparedStatement preparedStatement;
 	ResultSet resultSet=null;
 	Location location;
+	HandlerDate date;
 	TourType tourType;
+	DetailTour detailTour;
+	DetailTourForm detailTourForm;
 	private String connecturl="jdbc:mysql://"+hostname+":3306/"+dtbase;
 	Connection connection;
 	public TourDAO() {
@@ -149,7 +155,61 @@ public class TourDAO {
 		
 		return viewMap;
 	}
-	
+	public List<DetailTour> detailTours(double lat){
+		List<DetailTour> list=new ArrayList<>();
+		String sql = "select d2_id,title_hd,content,attach,image from tb_detail2 "+
+					 "where  detatil_id=any(select detatil_id "+
+					 "from tb_detail join tb_tourcategory on "+
+					 " tb_detail.tourcategory_id=tb_tourcategory.tourcategoryid join tb_location USING (tourcategoryid) "+
+					 "where lat_number=?)";
+		try {
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setDouble(1, lat);
+			resultSet=preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				detailTour = new DetailTour();
+				detailTour.setId(resultSet.getInt(1));
+				detailTour.setHeader_ct(resultSet.getString(2));
+				detailTour.setContent(resultSet.getString(3));
+				detailTour.setAttach(resultSet.getString(4));
+				detailTour.setImage(resultSet.getString(5));
+				list.add(detailTour);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error"+"\n"+e);
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public DetailTourForm detailTourForm(double lat) {
+		date=new HandlerDate();
+		String sql = "select tourcategory_id,startdate,enddate,price,tourcategoryname,title,image from "+ 
+					 "tb_detail join tb_tourcategory on tb_detail.tourcategory_id=tb_tourcategory.tourcategoryid "+
+					 "where tourcategory_id=any(select tourcategoryid from  tb_location " + 
+					 "where lat_number=?)";
+		try {
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setDouble(1, lat);
+			resultSet=preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				detailTourForm = new DetailTourForm();
+				detailTourForm.setId(resultSet.getString(1));
+				detailTourForm.setStartdate(date.CONVERT_DATE(resultSet.getString(2)));
+				detailTourForm.setEnddate(date.CONVERT_DATE(resultSet.getString(3)));
+				detailTourForm.setTotaldate(date.NUMBER_DATE(resultSet.getString(3), resultSet.getString(2)));
+				detailTourForm.setPrice(resultSet.getInt(4));
+				detailTourForm.setHead(resultSet.getString(5));
+				detailTourForm.setTitle(resultSet.getString(6));
+				detailTourForm.setImage(resultSet.getString(7));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error"+"\n"+e);
+			e.printStackTrace();
+		}
+		return detailTourForm;
+	}
 	public static void main(String[] args) {
 		TourDAO dao=new TourDAO();
 		//dao.locations(1);
@@ -165,7 +225,9 @@ public class TourDAO {
 		System.out.println(dao.tourtypeid("Đà Nẵng"));
 		//System.out.println("Đà Nẵng");
 		dao.lat_lng("Đà Nẵng");
-		
-		
+		for (DetailTour detailTour : dao.detailTours(15.997486)) {
+			System.out.println(detailTour.getHeader_ct());
+		}
+		System.out.println(dao.detailTourForm(15.997486).getTotaldate()+"\nNGày bắt đầu: "+dao.detailTourForm(15.997486).getStartdate()+dao.detailTourForm(15.997486).getEnddate()+dao.detailTourForm(15.997486).getImage());
 	}
 }

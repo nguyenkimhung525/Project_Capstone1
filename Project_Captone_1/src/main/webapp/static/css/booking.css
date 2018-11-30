@@ -34,6 +34,12 @@ body{
     -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
     transition: opacity 0.3s 0s, visibility 0s 0.3s;
 }
+.popup .cd-popup-event{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 1px solid transparent; 
+}
 .popup.visiablen{
   opacity: 1;
   visibility: visible;
@@ -53,6 +59,7 @@ body{
   transform: translateY(40px);
   /* Force Hardware Acceleration in WebKit */
   transition:0.4s;
+  z-index: 100;
 }
 .cd-popup-container{
 	height: 520px;
@@ -90,7 +97,7 @@ body{
 	position:absolute;
 	bottom:0;
 	width: 100%;
-	border: 1px solid red;
+	border: 1px solid transparent;
 }
 .cd-popup-container .footer-v button{
 	width: 108%;
@@ -209,27 +216,32 @@ html,body{
 		padding: 0;
 		margin: 0;
 }
-.navigator{
+.navigator-ct{
 	margin-top:7px; 
 	border: 1px solid transparent;
-	height: 595px;
-	width: 1585.9px;
 	margin-left: -2px;
 }
-
+.navigator-ct.remove{
+	height: 595px;
+	width: 100.4%;
+	
+}
+.navigator-ct.add{
+	height: 770px;
+	width: 100.4%;
+	margin-top: -102px;
+	
+}	
 /*---con	tent--------------*/
-
 
 .content{
 	width: 100%;
-	height: 2000px;
 	border: 1px solid transparent;
 	position: relative;
-	
 }
 .content .content-view{
 	width: 75%;
-	height: 100%;
+	height: 98.5%;
 	border: 1px solid transparent;
 	margin: auto;
 	position: relative;
@@ -247,39 +259,129 @@ html,body{
 	width: 65%;
 	height: 100%;
 	border: 1px solid transparent;
-	margin-top: 40px;
+	margin-top: 25px;
 	background: white;
 }
 .content .content-view .ct-col.el-1 .header-view {
 	color: #c5c5c5;
 	font-size: 13px;
+	margin-top:10px;
+	margin-left: 20px;
 }
 .content .content-view .ct-col.el-1 .navagator{
 	border-bottom: 1.5px solid #d3d3d3;
-	width: 100%;
+	width: 95%;
+	margin: auto;
 	height: 90px;
-	
 }
 .content .content-view .ct-col.el-1 .navagator ul li{
 	list-style-type: none;
 	float: left;
-	margin:38px 38px 18px 0;
+	margin:38px 38px 18px 0px;
 	padding:10px 0; 
 	border: 1px solid transparent;
 	color: #727272;
+	cursor: pointer;
+}
+
+.content .content-view .ct-col.el-1 .content-view{
+	border: 1px solid transparent;
+	width: 95%;
+	margin:26px auto;
+}
+.content .content-view .ct-col.el-1 .content-view img{
+	width: 100%;
+	height: 400px;
+	margin-top: 20px;
+}
+.content .content-view .ct-col.el-1 .content-view .row-1-gt{
+	font-size: 1.13rem;
+	text-align: center;
+}
+.content .content-view .ct-col.el-1 .content-view .row-2{
+	margin-top: 23px;
+}
+.content .content-view .ct-col.el-1 .content-view .row-2-gt{
+	width: 100%;
+	text-align:center;
+	font-size: 1.13rem;
+}
+.content .content-view .ct-col.el-1 .content-view .row-3{
+	margin-top: 23px;
+}
+.content .content-view .ct-col.el-1 .content-view .row-3-gt{
+	width: 100%;
+	text-align:center;
+	font-size: 1.13rem;
+}
+.content .content-view .ct-col.el-1 .content-view .row-4{
+	margin-top: 23px;
+}
+.content .content-view .ct-col.el-1 .content-view .row-4-gt{
+	width: 100%;
+	text-align:center;
+	font-size: 1.13rem;
+}
+.content .content-view .ct-col.el-1 .content-view .row-5{
+	margin-top: 23px;
+}
+.content .content-view .ct-col.el-1 .content-view .row-5-gt{
+	width: 100%;
+	text-align:center;
+	font-size: 1.13rem;
+}
+.content .content-view .ct-col.el-1 .content-view .row-6{
+	margin-top: 23px;
+}
+.content .content-view .ct-col.el-1 .content-view .row-6-gt{
+	width: 100%;
+	text-align:center;
+	font-size: 1.13rem;
+}
+.content .content-view .ct-col.el-1 .content-view .row-7{
+	margin-top: 23px;
+}
+.content .content-view .ct-col.el-1 .content-view .row-7-gt{
+	width: 100%;
+	text-align:center;
+	font-size: 1.13rem;
+}
+.content .content-view .ct-col.el-1 .content-view .row-8{
+	margin-top: 23px;
+}
+.content .content-view .ct-col.el-1 .content-view .row-8-gt{
+	width: 100%;
+	text-align:center;
+	font-size: 1.13rem;
+}
+.content .content-view .ct-col.el-1 .content-view .row-9{
+	margin-top: 23px;
+}
+.content .content-view .ct-col.el-1 .content-view .row-9-gt{
+	width: 100%;
+	text-align:center;
+	font-size: 1.13rem;
+}
+.content .content-view .ct-col.el-1 .content-view .row-10{
+	margin-top: 23px;
+}
+.content .content-view .ct-col.el-1 .content-view .row-10-gt{
+	width: 100%;
+	text-align:center;
+	font-size: 1.13rem;
 }
 /* content row 2--------------------*/
 
 .content .content-view .ct-col.el-2{
 	float:right;
 	width: 350px;
-	height: 610px;
+	height: 630px;
 	border: 1px solid transparent;
-	margin-top: 40px;
-	background: white;
+	margin-top: 20px;
+	background: #fbfbfb;
 	border-radius:5px;
 	right: 201px;
-	top:-30px;	
+	top:-30px;		
 }
 .content .content-view .ct-col.el-2 .header-view{
 	border: 1px solid transparent;
@@ -299,7 +401,7 @@ html,body{
 	
 }
 .content .content-view .ct-col.el-2 .content-view .row-1-img{
-	width: 95%;
+	width: 96%;
 	border: 1px solid transparent;
 	margin: auto;
 	height: 230px;
@@ -341,7 +443,9 @@ html,body{
 	cursor: pointer;
 }
 /*---footer----*/
-
+.row-6{
+	margin-top: 32px;
+}
 
 .footer{
 	width:100%;

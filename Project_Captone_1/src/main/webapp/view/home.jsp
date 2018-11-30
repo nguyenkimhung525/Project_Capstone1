@@ -28,7 +28,6 @@
 			<img alt="" src="${pageContext.request.contextPath}/static/image/images682811_Anh_2.jpg">
 		</div>
 		<div class="container">
-	
 			<div class="header" style="">
 				<div class="header-bg"></div>
 				<%@include file="./shared-static/header.jsp"%>

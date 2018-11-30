@@ -10,8 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.sun.org.glassfish.gmbal.ParameterNames;
 
 import app.com.dao.TourDAO;
+import app.com.entities.DetailTour;
+import app.com.entities.DetailTourForm;
 import app.com.entities.Location;
 import app.com.entities.TourType;
 import app.com.entities.ViewMap;
@@ -45,8 +50,13 @@ public class HandlerController {
 		return "home";
 	}
 	@RequestMapping(value="/booking")
-	public String booking(Model model) {
+	public String booking(Model model,@RequestParam Double lat) {
 		boolean flag=true;
+		List<DetailTour> detailTours=tourservice.getlistdetail(lat);
+		DetailTourForm detailTourForm=tourservice.getdetailform(lat);
+		System.out.println(lat);
+		model.addAttribute("detailTour",detailTours);
+		model.addAttribute("form",detailTourForm);
 		model.addAttribute("clickview360",flag);
 		return "booking";
 	}

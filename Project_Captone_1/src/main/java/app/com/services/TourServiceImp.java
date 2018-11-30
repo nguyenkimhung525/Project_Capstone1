@@ -8,6 +8,8 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import app.com.dao.TourDAO;
+import app.com.entities.DetailTour;
+import app.com.entities.DetailTourForm;
 import app.com.entities.Location;
 
 @Service
@@ -42,6 +44,16 @@ public class TourServiceImp implements TourServices{
 	public List<Location> getlistshowview(int gettourtypeid) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public List<DetailTour> getlistdetail(Double lat) {
+		// TODO Auto-generated method stub
+		return dao.detailTours(lat);
+	}
+	@Override
+	public DetailTourForm getdetailform(Double lat) {
+		// TODO Auto-generated method stub
+		return dao.detailTourForm(lat);
 	}
 
 }
