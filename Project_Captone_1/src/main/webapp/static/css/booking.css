@@ -216,21 +216,27 @@ html,body{
 		padding: 0;
 		margin: 0;
 }
+/*
+	zoom view
+*/
+.zoom-view{
+	height: 24px;
+	width: 24px;
+	background: #f7f7f7;
+	border: 2.5px solid #f7f7f7;
+	position: absolute;
+	z-index: 1000;
+	right: 30px;
+	bottom: 5px;
+}
 .navigator-ct{
 	margin-top:7px; 
 	border: 1px solid transparent;
-	margin-left: -2px;
-}
-.navigator-ct.remove{
 	height: 595px;
 	width: 100.4%;
-	
-}
-.navigator-ct.add{
-	height: 770px;
-	width: 100.4%;
-	margin-top: -102px;
-	
+	margin-left: -2px;
+	transition: all 0.2s;
+	position: relative;
 }	
 /*---con	tent--------------*/
 
@@ -372,7 +378,7 @@ html,body{
 }
 /* content row 2--------------------*/
 
-.content .content-view .ct-col.el-2{
+.content .content-view .ct-col.element-2{
 	float:right;
 	width: 350px;
 	height: 630px;
@@ -383,7 +389,7 @@ html,body{
 	right: 201px;
 	top:-30px;		
 }
-.content .content-view .ct-col.el-2 .header-view{
+.content .content-view .ct-col.element-2 .header-view{
 	border: 1px solid transparent;
 	width: 95%;
 	margin: 9px auto;
@@ -395,12 +401,12 @@ html,body{
 }
 
 
-.content .content-view .ct-col.el-2 .content-view{
+.content .content-view .ct-col.element-2 .content-view{
 	border: 1px solid transparent;
 	width: 100%;
 	
 }
-.content .content-view .ct-col.el-2 .content-view .row-1-img{
+.content .content-view .ct-col.element-2 .content-view .row-1-img{
 	width: 96%;
 	border: 1px solid transparent;
 	margin: auto;
@@ -413,7 +419,7 @@ html,body{
 }
 
 
-.content .content-view .ct-col.el-2 .content-view .row-2-ct{
+.content .content-view .ct-col.element-2 .content-view .row-2-ct{
 	width: 95%;
 	margin:10px auto;
 	font-size: 1.2rem;

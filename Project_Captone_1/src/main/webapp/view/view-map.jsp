@@ -21,7 +21,8 @@
       function initMap() {
         var options= {
         	zoom: 12,
-        	center: {lat: ${local.lat_number}, lng: ${local.lng_number}}
+        	center: {lat: ${local.lat_number}, lng: ${local.lng_number}},
+        	mapTypeId: 'satellite'
         }
         var map = new google.maps.Map(document.getElementById('map'),options);
         
@@ -120,7 +121,7 @@
             setTimeout(function () { marker.setAnimation(null); }, 2000);
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0wHp_SwTgju3i7igqDRhZtr34Ca-M6mk&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVdRkvgs4_mrMS6VM2wU1x_Osd9In6K7E&callback=initMap"
     async defer></script>
   </body>
 </html>

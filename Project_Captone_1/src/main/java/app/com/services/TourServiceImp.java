@@ -11,6 +11,7 @@ import app.com.dao.TourDAO;
 import app.com.entities.DetailTour;
 import app.com.entities.DetailTourForm;
 import app.com.entities.Location;
+import app.com.entities.View360;
 
 @Service
 public class TourServiceImp implements TourServices{
@@ -54,6 +55,11 @@ public class TourServiceImp implements TourServices{
 	public DetailTourForm getdetailform(Double lat) {
 		// TODO Auto-generated method stub
 		return dao.detailTourForm(lat);
+	}
+	@Override
+	public List<View360> getlistimage360(Double lat) {
+		// TODO Auto-generated method stub
+		return dao.image360(lat);
 	}
 
 }

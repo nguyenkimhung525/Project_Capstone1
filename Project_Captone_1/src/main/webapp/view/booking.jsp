@@ -82,10 +82,14 @@
 	
 	
 	
-	<div class="navigator-ct remove" id="navigator-c">	
+
+	<div class="navigator-ct add remove" id="navigator-c">	
 		<c:if test="${clickview360==true}">
 			<%@include file="./shared-static/view360.jsp" %>
 		</c:if>
+		<div class="zoom-view" onclick="zoom(1)" id="zoom">
+	
+		</div>
 	</div>
 	<div class="content">
 		<div class="ct-br"></div>
@@ -115,6 +119,7 @@
 						<div class="row-1-gt"> <b><i>${detailTour.attach}</i></b></div>
 					</div>
 				</div>
+		
 				</c:forEach>
 				
 				
@@ -139,9 +144,10 @@
 					</div>
 					</div>
 			</div>
-			<div class="ct-col el-2">
+			<div class="ct-col element-2">
 				<div class="header-view">
 					<h4 id="demo">${form.head} </h4>
+					
 				</div>
 				<div class="content-view">
 					<div class="row-1-img">
@@ -163,7 +169,8 @@
 								Tổng&nbsp;:&nbsp;<span ><b  id="price" style="color:#ff9b2d "></b></span><span style="color: #ff9b2d"><b>VNĐ</b></b></span>
 							</h3>
 						</div>
-						<div class="submit"><button type="submit">ĐẶT TOUR  </button></div>
+						<div class="submit"><button type="submit">ĐẶT TOUR
+						 </button></div>
 					</div>
 				</div>	
 			</div>
@@ -175,18 +182,18 @@
 		</div>
 		<script type="text/javascript">
 		var store=1;
-		var row_2=document.querySelector('.el-2');
+		var row_22=document.querySelector('.element-2');
 		var value=parseInt(${form.price});
 		var str=value.toString();
 		var last=str.length;
 		var PRICE_VND=str.substring(0,1)+'.'+str.substring(1,4)+'.'+str.substring(4,str.length);
 	    document.getElementById("price").innerHTML=PRICE_VND;
-		var heght = 0;
+		var heghtt = 0;
 		<c:if test="${fn:length(detailTour)>=4}">	
-			heght=parseInt(2690)+parseInt(520);
+			heghtt=parseInt(2690)+parseInt(520);
 		</c:if>
 		<c:if test="${fn:length(detailTour)<4}">
-			heght=2690;
+			heghtt=2690;
 		</c:if>
 		var TOTAL=0;
 		var TOTAL1=0;
@@ -258,16 +265,16 @@
 		   
 		}
 		
-			window.onscroll = function() {scrollFunction()};
-		function scrollFunction() {
-		    if ((document.body.scrollTop > 680 && document.body.scrollTop<heght) || (document.documentElement.scrollTop > 680 && document.documentElement.scrollTop<heght)  ) {
-		    		row_2.style.position = "fixed";
+			window.onscroll = function() {scrollFunctions()};
+		function scrollFunctions() {
+		    if ((document.body.scrollTop > 680 && document.body.scrollTop<heghtt) || (document.documentElement.scrollTop > 680 && document.documentElement.scrollTop<heghtt)  ) {
+		    		row_22.style.position = "fixed";
 		    }
 		    else if(document.body.scrollTop === 659 || document.documentElement.scrollTop == 659){
-	    		row_2.style.position = "static";
+		    	row_22.style.position = "static";
 		    }
 		    else {
-		    		row_2.style.position = "static";	
+		    	row_22.style.position = "static";	
 		    }
 		}
 		</script>	
@@ -290,18 +297,20 @@
 		 }
 		 var req=document.querySelector('#req');
 		 var token=document.querySelector('.token');
+		 var check=false;
 		 req.onclick=function(){
-			 popup.classList.remove("visiablen");
-			 token.classList.add("visable");
-			 var set = setTimeout(function(){
-			 		token.classList.remove("visable");
-			 		token.classList.remove("remove");
-				}, 3500);
-		 	 setTimeout(function(){
-		 		
-		 		token.classList.add("remove");
-			}, 3000);
-		 	
+			 if(check==true){
+				 popup.classList.remove("visiablen");
+				 token.classList.add("visable");
+				 var set = setTimeout(function(){
+				 		token.classList.remove("visable");
+				 		token.classList.remove("remove");
+					}, 3500);
+			 	 setTimeout(function(){
+			 		
+			 		token.classList.add("remove");
+				}, 3000);
+			 }
 		 }
 		   var targetElm = document.querySelector('.row-6');
 		 function move_up() {
@@ -311,12 +320,48 @@
 		<script type="text/javascript">
 		var z = document.querySelector("#zoom");
 		var zv = document.querySelector(".content-view");
-
+		var zzz = document.querySelector(".imageview");
+		var body = document.querySelector("body");
+		var section = document.querySelectorAll(".section");
 		var na = document.getElementById("navigator-c");
-		function zoom() {
-			na.classList.remove("remove");
-			na.classList.add("add");
-		};
+		var indexv=0;
+		function zoom(n) {
+			zoomview(indexv+=n);
+		}
+		function zoomview(n) {
+			if(indexv%2!=0){
+				console.log('ibdex: '+indexv)
+				na.style.height = '767px';
+				na.style.marginTop ='-102px';
+				section[0].style.height = '767px';
+				section[1].style.height = '767px';
+				section[2].style.height = '767px';
+				section[3].style.height = '767px';
+				body.style.overflow = "hidden";
+				<c:forEach items="${view360}" var="view" varStatus="status">
+					PSV${status.count}.resize({
+							height:'767px'
+					});
+				</c:forEach>
+			}
+			else{
+				na.style.height = '595px';
+				na.style.marginTop ='0';
+				section[0].style.height = '595px';
+				section[1].style.height = '595px';
+				section[2].style.height = '595px';
+				section[3].style.height = '595px';
+				body.style.overflowY = "scroll";
+				body.style.overflowX  = "hidden";
+				<c:forEach items="${view360}" var="view" varStatus="status">
+					PSV${status.count}.resize({
+						height:'595px'
+					});
+				</c:forEach>
+
+	
+			}
+		}
 	</script>
 	
 </body>

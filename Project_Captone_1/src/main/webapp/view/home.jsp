@@ -43,7 +43,6 @@
 			</div>
 		</div>
 	</div>
-	
 	<script type="text/javascript">
 		var myInput=document.getElementById("myInput");
 		var dpmenu=document.getElementById('menu');

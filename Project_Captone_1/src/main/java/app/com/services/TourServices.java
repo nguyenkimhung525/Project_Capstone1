@@ -6,6 +6,7 @@ import java.util.Map;
 import app.com.entities.DetailTour;
 import app.com.entities.DetailTourForm;
 import app.com.entities.Location;
+import app.com.entities.View360;
 
 public interface TourServices {
 
@@ -22,5 +23,7 @@ public interface TourServices {
 	public List<DetailTour> getlistdetail(Double lat);
 
 	public DetailTourForm getdetailform(Double lat);
+
+	public List<View360> getlistimage360(Double lat);
 
 }

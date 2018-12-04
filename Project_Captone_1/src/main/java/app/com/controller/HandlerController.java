@@ -19,6 +19,7 @@ import app.com.entities.DetailTour;
 import app.com.entities.DetailTourForm;
 import app.com.entities.Location;
 import app.com.entities.TourType;
+import app.com.entities.View360;
 import app.com.entities.ViewMap;
 import app.com.services.TourServices;
 
@@ -54,10 +55,12 @@ public class HandlerController {
 		boolean flag=true;
 		List<DetailTour> detailTours=tourservice.getlistdetail(lat);
 		DetailTourForm detailTourForm=tourservice.getdetailform(lat);
+		List<View360> view360=tourservice.getlistimage360(lat);
 		System.out.println(lat);
 		model.addAttribute("detailTour",detailTours);
 		model.addAttribute("form",detailTourForm);
 		model.addAttribute("clickview360",flag);
+		model.addAttribute("view360", view360);
 		return "booking";
 	}
 }

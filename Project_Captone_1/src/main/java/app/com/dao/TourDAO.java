@@ -15,6 +15,7 @@ import app.com.entities.DetailTour;
 import app.com.entities.DetailTourForm;
 import app.com.entities.Location;
 import app.com.entities.TourType;
+import app.com.entities.View360;
 import app.com.entities.ViewMap;
 
 public class TourDAO {
@@ -30,6 +31,7 @@ public class TourDAO {
 	TourType tourType;
 	DetailTour detailTour;
 	DetailTourForm detailTourForm;
+	View360 view360;
 	private String connecturl="jdbc:mysql://"+hostname+":3306/"+dtbase;
 	Connection connection;
 	public TourDAO() {
@@ -210,23 +212,44 @@ public class TourDAO {
 		}
 		return detailTourForm;
 	}
-	public static void main(String[] args) {
+	public List<View360> image360(double lat) {
+		List<View360> list = new ArrayList<>();
+		String sql="select id_img,image " + 
+				"from tb_ttimage join tb_location using(lat_number) " + 
+				"where lat_number=?";
+		try {
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setDouble(1, lat);
+			resultSet=preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				view360 = new View360();
+				view360.setId(resultSet.getInt(1));
+				view360.setImage(resultSet.getString(2));
+				list.add(view360);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public static void main(
+		String[] args) {
 		TourDAO dao=new TourDAO();
 		//dao.locations(1);
 		Map<Double,Double> maps=new HashMap<>();
-		maps.put(16.004306, 108.261808);
-		
 		for (Map.Entry<Double, Double> entry : dao.locations(1).entrySet()) {
 			System.out.println(entry.getKey()+" : "+entry.getValue());
 		}
-		for (ViewMap location : dao.getimageviewmap(maps.get(16.004306))) {
-			System.out.println(location.getImage());
-		}
+		
 		System.out.println(dao.tourtypeid("Đà Nẵng"));
 		//System.out.println("Đà Nẵng");
 		dao.lat_lng("Đà Nẵng");
 		for (DetailTour detailTour : dao.detailTours(15.997486)) {
 			System.out.println(detailTour.getHeader_ct());
+		}
+		for (View360 view360 : dao.image360(16.070451)) {
+			System.out.println(view360.getId()+":"+view360.getImage());
 		}
 		System.out.println(dao.detailTourForm(15.997486).getTotaldate()+"\nNGày bắt đầu: "+dao.detailTourForm(15.997486).getStartdate()+dao.detailTourForm(15.997486).getEnddate()+dao.detailTourForm(15.997486).getImage());
 	}
