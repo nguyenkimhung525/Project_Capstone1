@@ -1,0 +1,19 @@
+body{
+	padding: 0;
+	width: 100%;
+	margin: 0;
+	font-size: 1rem;
+}
+html ,body .container{
+	height: 100%;
+	width: 100%;
+	color: #39424e;
+	background: #f4f4ff;
+}
+.container .content{
+	box-sizing: border-box;
+	width: 30%;
+	height: 600px;
+	border:1px solid red;
+	margin: 80px auto;
+}

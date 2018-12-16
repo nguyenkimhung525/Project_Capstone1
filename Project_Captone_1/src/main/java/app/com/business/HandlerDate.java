@@ -16,6 +16,10 @@ public class HandlerDate {
 		}
 		return strdate;
 	}
+	public String DATE_NOW() {
+		Date date=new Date();
+		return new SimpleDateFormat("yyyy-MM-dd").format(date);
+	}
 	public String NUMBER_DATE(String date,String date2) {
 		int value1=Integer.valueOf(date.substring(date.length()-2));
 		System.out.println(value1);
@@ -27,6 +31,12 @@ public class HandlerDate {
 		HandlerDate date=new HandlerDate();
 		System.out.println(date.CONVERT_DATE("2018-12-19"));
 		System.out.println(date.NUMBER_DATE("2018-12-29","2018-12-19"));
-
+		Date date2=new Date();
+		SimpleDateFormat dateFormat=new SimpleDateFormat("dd-MM-yyyy");
+		System.out.println(dateFormat.format(date2));
+		String str=dateFormat.format(date2);
+		System.out.println(str);
+		
+		System.out.println("NGay: hien tai: "+date.DATE_NOW());
 	}
 }

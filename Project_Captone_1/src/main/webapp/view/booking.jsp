@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<%@taglib uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
+	<%@taglib tagdir="/WEB-INF/tags" prefix="my"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,30 +50,38 @@
 				<h3><b>Yêu cầu đặt Tour</b></h3>
 			</div>
 			<div class="content-p">
-				<div>
-					Họ & Tên <span style="color: red">*</span>
-					<br>
-					<input type="text" placeholder="Name" name="name" required="required">
-				</div>
-				<div style="margin-top: 7px;">
-					Điện Thoại <span style="color: red">*</span>
-					<br>
-					<input type="text" placeholder="Điện Thoại" name="name" required="required">
-				</div>
-				<div style="margin-top: 7px;">
-					Email<span style="color: red">*</span>
-					<br>
-					<input type="text" placeholder="Email" name="name" required="required">
-				</div>
-				<div style="margin-top: 7px;">
-					Yêu cầu khác<span style="color: red">*</span>
-					<br>
-					<textarea rows="4" cols="45 wrap="physical" name="comments" style="margin-top: 10px"></textarea>
-					</textarea>
-				</div>
-				<div class="footer-v">
-					<button id="req" type="submit"><h3>GỮI YÊU CẦU</h3></button>
-				</div>
+					<div style="position: relative;">
+						Họ & Tên <span style="color: red">*</span>
+						<br>
+						<div id="errorname" style="display:none ;font-size:13px;border: 1px solid transparent;color: red;text-align:right;margin-top: 10px;width: 50%;right:15px;top:0;position: absolute;">
+							Cần nhập giá trị.
+						</div>
+						<input type="text" id="name" placeholder="Name" onkeyup="nameclick()"/>
+					</div>
+					<div style="margin-top: 7px;position: relative">
+						Điện Thoại <span style="color: red">*</span>
+						<br>
+						<div id="error-phone" style="display:none;font-size:13px;border: 1px solid transparent;color: red;text-align:right;margin-top: 10px;width: 50%;right:15px;top:0;position: absolute;">
+							Cần nhập giá trị.
+						</div>
+						<input type="text" id="phone" placeholder="Phone"/>
+					</div>
+					<div style="margin-top: 7px;position: relative">
+						Email<span style="color: red">*</span>
+						<br>
+						<div id="error-email" style="display:none;font-size:13px;border: 1px solid transparent;color: red;text-align:right;margin-top: 10px;width: 50%;right:15px;top:0;position: absolute;">
+							Cần nhập giá trị.
+						</div>
+						<input type="text" id="email" placeholder="Email"/>
+					</div>
+					<div style="margin-top: 7px;">
+						Yêu cầu khác<span style="color: red">*</span>
+						<br>
+						<textarea rows="4" cols="45" id="state"></textarea>
+					</div>
+					<div class="footer-v">
+						<button id="req" type="submit"><h3>GỮI YÊU CẦU</h3></button>
+					</div>
 			</div>
 		</div>
 	</div>
@@ -79,7 +89,6 @@
 			<%@include file="./shared-static/header.jsp"%>
 			
 	</div>
-	
 	
 	
 
@@ -143,36 +152,28 @@
 						<p>&nbsp;&nbsp;&nbsp;- Nếu hủy hoặc chuyển sang các chuyến du lịch khác ngay sau khi đăng ký từ sau 10 ngày trước ngày khởi hành: Chi phí hủy tour: 50% tiền cọc tour.</p>
 					</div>
 					</div>
-			</div>
+			</div>	
 			<div class="ct-col element-2">
+				<form action="${pageContext.request.contextPath}/form-customer" method="post">
 				<div class="header-view">
 					<h4 id="demo">${form.head} </h4>
-					
 				</div>
 				<div class="content-view">
 					<div class="row-1-img">
 						<img src="${pageContext.request.contextPath}/static/image-booking/${form.image}" alt="">
 					</div>
 					<div class="row-2-ct">
-						<p><i class="fa fa-barcode"></i>Mã Tour&nbsp;: &nbsp;<span style="color: #7e7e7e;">${form.id}</span></span></p>
-						<p><i class="fa fa-calendar-minus-o"></i>Ngày Đi&nbsp;:&nbsp; <span style="color: #7e7e7e;">${form.startdate}</span></p>
-						<p><i class="fa fa-calendar-plus-o"></i>Ngày Về&nbsp;:&nbsp; <span style="color: #7e7e7e;">${form.enddate}</span></p>
-						<p><i class="fa fa-calendar"></i>Thời Gian&nbsp;:&nbsp;<span style="color: #7e7e7e;">${form.totaldate}</span>
+						<p><i class="fa fa-barcode"></i>Mã Tour&nbsp;: &nbsp;<span style="color: #7e7e7e;"><input type="text" class="idtour" name="id" value="${form.id}"></span></p>
+						<p><i class="fa fa-calendar-minus-o"></i>Ngày Đi&nbsp;:&nbsp; <span style="color: #7e7e7e;"><input type="text" id="startdate" name="startdate" value="${form.startdate}"></span></p>
+						<p><i class="fa fa-calendar-plus-o"></i>Ngày Về&nbsp;:&nbsp; <span style="color: #7e7e7e;"><input type="text" id="enddate" name="enddate" value="${form.enddate}"></span></p>
+						<p><i class="fa fa-calendar"></i>Thời Gian&nbsp;:&nbsp;<span style="color: #7e7e7e;"><input type="text" id="totaldate" name="totaldate" value="${form.totaldate}"></span>
 						</p>
-						<p><i class="fa fa-user-plus"></i>Số Người Lớn&nbsp;:&nbsp;<input type="number"  onchange="myonchange()" oninput="myFunction()" id="myNumber" value="1" min="1" max="100"></p>
-						<p><i class="fa fa-male" style="font-size: 18px;"></i>Số Trẻ Em&nbsp;:&nbsp;<input  style="margin-left: 23px;" type="number"  onchange="myonchange_te()" oninput="myFunction_te()" id="myNumber_te" value="1"  min="1" max="100"></p>
-						<p><i class="fa fa-child" style="font-size: 18px;"></i></i>Em Bé&nbsp;:&nbsp;<input  style="margin-left: 41px;" type="number"  onchange="myonchange_eb()" oninput="myFunction_eb()" id="myNumber_eb" value="1"  min="1" max="100"></p>
-						
 						<div class="last-child"></div>
-						<div style="margin-left: 5px;">
-							<h3>
-								Tổng&nbsp;:&nbsp;<span ><b  id="price" style="color:#ff9b2d "></b></span><span style="color: #ff9b2d"><b>VNĐ</b></b></span>
-							</h3>
-						</div>
-						<div class="submit"><button type="submit">ĐẶT TOUR
-						 </button></div>
+						<div class="submit"><button type="submit">ĐẶT TOUR</button></div>
 					</div>
 				</div>	
+				</form>
+				
 			</div>
 		</div>
 		
@@ -181,13 +182,8 @@
 			<%@include file="./shared-static/footer.jsp" %>
 		</div>
 		<script type="text/javascript">
-		var store=1;
+		var store=0;
 		var row_22=document.querySelector('.element-2');
-		var value=parseInt(${form.price});
-		var str=value.toString();
-		var last=str.length;
-		var PRICE_VND=str.substring(0,1)+'.'+str.substring(1,4)+'.'+str.substring(4,str.length);
-	    document.getElementById("price").innerHTML=PRICE_VND;
 		var heghtt = 0;
 		<c:if test="${fn:length(detailTour)>=4}">	
 			heghtt=parseInt(2690)+parseInt(520);
@@ -195,75 +191,6 @@
 		<c:if test="${fn:length(detailTour)<4}">
 			heghtt=2690;
 		</c:if>
-		var TOTAL=0;
-		var TOTAL1=0;
-		
-		document.getElementById("myNumber").value=1;
-		document.getElementById("myNumber_te").value=1;
-		document.getElementById("myNumber_eb").value=1;
-		function myFunction(){
-		    var x = document.getElementById("myNumber").value;
-		    if(store<x){
-		    	var root=0;
-		    	root=parseInt(TOTAL1)+parseInt(value)*(x-((1-75/100)*(x-1)));
-		    }
-		    else if(store>x){
-		    	var root=0;
-		    	root=parseInt(TOTAL1)+parseInt(value)*(x-((1-75/100)*(x-1)));
-		    }
-		    store=x;
-		    if(x==1){
-		    	TOTAL=0;
-		    }
-		    else TOTAL=root-value-TOTAL1;
-		    if(root==value){
-		    	var str=value.toString();
-				var last=str.length;
-				var PRICE_VND=str.substring(0,1)+'.'+str.substring(1,4)+'.'+str.substring(4,str.length);
-			    document.getElementById("price").innerHTML=PRICE_VND;
-		    }
-		    else{
-		    	 	var str=root.toString();
-					var last=str.length;
-					var PRICE_VND=str.substring(0,2)+'.'+str.substring(2,5)+'.'+str.substring(5,str.length);
-					document.getElementById("price").innerHTML=PRICE_VND;
-		    }
-		   
-		}
-		var store1;
-		function myFunction_te(){
-		    var xx = document.getElementById("myNumber_te").value;
-
-		    if(store1<xx){
-		    	var root1=0;
-		    	root1=parseInt(TOTAL)+parseInt(value)*(xx-((1-50/100)*(xx-1)));
-		    }
-		    else if(store1>xx){
-		    	var root1=0;
-		    	root1=parseInt(TOTAL)+parseInt(value)*(xx-((1-50/100)*(xx-1)));
-		    }
-		    store1=xx;
-		    if(xx==1){
-		    	TOTAL1=0;
-		    }
-		    else{
-		    	TOTAL1=root1-value-TOTAL;
-		    	
-		    }
-		    if(root1==value){
-		    	var str=value.toString();
-				var last=str.length;
-				var PRICE_VND=str.substring(0,1)+'.'+str.substring(1,4)+'.'+str.substring(4,str.length);
-			    document.getElementById("price").innerHTML=PRICE_VND;
-		    }
-		    else{
-		    	 var str=root1.toString();
-					var last=str.length;
-					var PRICE_VND=str.substring(0,2)+'.'+str.substring(2,5)+'.'+str.substring(5,str.length);
-					document.getElementById("price").innerHTML=PRICE_VND;
-		    }
-		   
-		}
 		
 			window.onscroll = function() {scrollFunctions()};
 		function scrollFunctions() {
@@ -277,15 +204,16 @@
 		    	row_22.style.position = "static";	
 		    }
 		}
-		</script>	
+		</script>
+			
 		<script type="text/javascript">
-		 jQuery(document).ready(function($){
-			    //open popup
+		 /* jQuery(document).ready(function($){
+			     //open popup
 			    $('.submit').on('click', function(event){
 			        event.preventDefault();
 			        $('.popup').addClass('visiablen');
 			     });
-			 });
+			 });  */
 			var popup_event=document.querySelector('.cd-popup-event');
 		  	var popup=document.querySelector('.popup');
 		  	popup_event.onclick=function(){
@@ -298,20 +226,34 @@
 		 var req=document.querySelector('#req');
 		 var token=document.querySelector('.token');
 		 var check=false;
-		 req.onclick=function(){
-			 if(check==true){
-				 popup.classList.remove("visiablen");
-				 token.classList.add("visable");
-				 var set = setTimeout(function(){
-				 		token.classList.remove("visable");
-				 		token.classList.remove("remove");
-					}, 3500);
-			 	 setTimeout(function(){
-			 		
-			 		token.classList.add("remove");
-				}, 3000);
-			 }
-		 }
+		 var namee=document.getElementById('name');
+		 var phone=document.getElementById('phone');
+		 var email=document.getElementById('email');
+		 var statement=document.getElementById('state');
+		 namee.value="";
+		 phone.value="";
+		 email.value="";
+		 var error=document.querySelector('#errorname');
+		 var errorphone=document.querySelector('#error-phone');
+		 var erroremail=document.querySelector('#error-email');
+		 var pattername=/^\s*[a-zA-Z,\s]+\s*$/;
+		 var patternemail=/^((([!#$%&'*+\-/=?^_`{|}~\w])|([!#$%&'*+\-/=?^_`{|}~\w][!#$%&'*+\-/=?^_`{|}~\.\w]{0,}[!#$%&'*+\-/=?^_`{|}~\w]))[@]\w+([-.]\w+)*\.\w+([-.]\w+)*)$/;
+		 var patternphone=/^[0-9]*$/;
+		 var checkname=false;
+		 var checkphone=false;
+		 var checkemail=false;
+		 namee.onclick = function(){
+				error.style.display='none';
+			};
+		phone.onclick = function(){
+			errorphone.style.display='none';
+		};
+		email.onclick = function(){
+			erroremail.style.display='none';
+		};
+		var namecus="";
+		var phonecus="";
+		var mailcus="";
 		   var targetElm = document.querySelector('.row-6');
 		 function move_up() {
 			 targetElm.scrollIntoView();

@@ -6,9 +6,5 @@
 <%@tag import="app.com.entities.DetailTourForm"%>
 <%@tag import="java.util.List"%>
 <%
-	TourDAO dao=new TourDAO();
-	List<DetailTour> detailTours = dao.detailTours(lat);
-	DetailTourForm detailTourForm = dao.detailTourForm(lat);
-	request.setAttribute("detailTours", detailTours);
-	request.setAttribute("form", detailTourForm);
+	
 %>

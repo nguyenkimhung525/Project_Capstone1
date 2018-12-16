@@ -36,5 +36,4 @@ public class TourCategory implements Serializable {
 	public void setVehide(String vehide) {
 		this.vehide = vehide;
 	}
-
 }

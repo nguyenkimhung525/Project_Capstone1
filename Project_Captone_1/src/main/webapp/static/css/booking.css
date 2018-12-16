@@ -51,7 +51,7 @@ body{
   display: block;
   position: relative;
   width: 90%;
-  max-width: 400px;
+  max-width: 340px;
   margin: 0 auto;
   background: #FFF;
   border-radius: .25em .25em .4em .4em;
@@ -63,7 +63,7 @@ body{
 }
 .cd-popup-container{
 	height: 520px;
-	width: 380px;
+	width: 360px;
 	margin:0px auto;
 	border: 1px solid transparent;
 	background:white;
@@ -100,13 +100,14 @@ body{
 	border: 1px solid transparent;
 }
 .cd-popup-container .footer-v button{
-	width: 108%;
+	width: 109%;
 	border: 0;
 	margin-bottom:-4px;
 	background: #ff860d;
 	color: white;
 	margin-left:-14px;
 	padding-bottom: 3px; 
+	border-radius:4px; 
 }
 
 
@@ -381,7 +382,7 @@ html,body{
 .content .content-view .ct-col.element-2{
 	float:right;
 	width: 350px;
-	height: 630px;
+	height: 520px;
 	border: 1px solid transparent;
 	margin-top: 20px;
 	background: #fbfbfb;
@@ -451,6 +452,14 @@ html,body{
 /*---footer----*/
 .row-6{
 	margin-top: 32px;
+}
+
+
+.content-view .row-2-ct .idtour,.content-view .row-2-ct #startdate,.content-view .row-2-ct #enddate,.content-view .row-2-ct #totaldate{
+	border: 0;
+	text-decoration: none;
+	background: #fbfbfb;
+	color: #404040;
 }
 
 .footer{

@@ -5,9 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 
 import app.com.dao.TourDAO;
+import app.com.entities.BillCus;
+import app.com.entities.Customer;
 import app.com.entities.DetailTour;
 import app.com.entities.DetailTourForm;
 import app.com.entities.Location;
@@ -60,6 +64,37 @@ public class TourServiceImp implements TourServices{
 	public List<View360> getlistimage360(Double lat) {
 		// TODO Auto-generated method stub
 		return dao.image360(lat);
+	}
+	@Override
+	public boolean addCustomer(@Valid Customer customer) {
+		// TODO Auto-generated method stub
+		System.out.println("Email: "+customer.getEmail());
+		return dao.INSERT_CUS(customer);
+	}
+	@Override
+	public DetailTourForm getFormcus(String id) {
+		// TODO Auto-generated method stub
+		return dao.FORM_CUS(id);
+	}
+	@Override
+	public BillCus getBillCus() {
+		// TODO Auto-generated method stub
+		return new BillCus();
+	}
+	@Override
+	public boolean INSERT_BILL(BillCus billCus) {
+		// TODO Auto-generated method stub
+		return dao.INSERT_BIll(billCus);
+	}
+	@Override
+	public int getcusID(String name) {
+		// TODO Auto-generated method stub
+		return dao.GETID(name);
+	}
+	@Override
+	public boolean INSERT_BOOK(String idtour, int idcus) {
+		// TODO Auto-generated method stub
+		return dao.INSERT_BOOK(idtour, idcus);
 	}
 
 }

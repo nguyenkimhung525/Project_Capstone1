@@ -11,6 +11,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import app.com.business.HandlerDate;
+import app.com.entities.BillCus;
+import app.com.entities.Customer;
 import app.com.entities.DetailTour;
 import app.com.entities.DetailTourForm;
 import app.com.entities.Location;
@@ -27,6 +29,7 @@ public class TourDAO {
 	PreparedStatement preparedStatement;
 	ResultSet resultSet=null;
 	Location location;
+	Customer customer;
 	HandlerDate date;
 	TourType tourType;
 	DetailTour detailTour;
@@ -212,6 +215,33 @@ public class TourDAO {
 		}
 		return detailTourForm;
 	}
+	public DetailTourForm FORM_CUS(String id) {
+		date=new HandlerDate();
+		String sql = "select tourcategory_id,startdate,enddate,price,tourcategoryname,title,image from "+ 
+					 "tb_detail join tb_tourcategory on tb_detail.tourcategory_id=tb_tourcategory.tourcategoryid "+
+					 "where tourcategory_id=?";
+		try {
+			preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setString(1, id);
+			resultSet=preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				detailTourForm = new DetailTourForm();
+				detailTourForm.setId(resultSet.getString(1));
+				detailTourForm.setStartdate(date.CONVERT_DATE(resultSet.getString(2)));
+				detailTourForm.setEnddate(date.CONVERT_DATE(resultSet.getString(3)));
+				detailTourForm.setTotaldate(date.NUMBER_DATE(resultSet.getString(3), resultSet.getString(2)));
+				detailTourForm.setPrice(resultSet.getInt(4));
+				detailTourForm.setHead(resultSet.getString(5));
+				detailTourForm.setTitle(resultSet.getString(6));
+				detailTourForm.setImage(resultSet.getString(7));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error"+"\n"+e);
+			e.printStackTrace();
+		}
+		return detailTourForm;
+	}
 	public List<View360> image360(double lat) {
 		List<View360> list = new ArrayList<>();
 		String sql="select id_img,image " + 
@@ -233,15 +263,89 @@ public class TourDAO {
 		}
 		return list;
 	}
+	public boolean INSERT_CUS(Customer customer) {
+		String sql="insert into tb_customer(`name`,`email`,`phone`,`address`)values(?,?,?,?)";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, customer.getName());
+			preparedStatement.setString(2, customer.getEmail());
+			preparedStatement.setString(3, customer.getPhone());
+			preparedStatement.setString(4, customer.getAddress());
+			int kq=preparedStatement.executeUpdate();
+			if(kq==1)return true;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
+	public boolean INSERT_BOOK(String idtour,int idcus) {
+		String sql="insert into tb_bookingtour(`tourcategoryid`,`customerid`)values(?,?)";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, idtour);
+			preparedStatement.setInt(2, idcus);
+			int kq=preparedStatement.executeUpdate();
+			if(kq==1)return true;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
+	public boolean INSERT_BIll(BillCus billCus) {
+		date = new HandlerDate();
+		String sql="insert into tb_bill(`createdate`,`totalprice`,`count_person`,customerid)values(?,?,?,?)";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1,date.DATE_NOW());
+			preparedStatement.setInt(2, billCus.getPrice());
+			preparedStatement.setInt(3, billCus.getCountperson());
+			preparedStatement.setInt(4, billCus.getCustomerid());
+			int kq=preparedStatement.executeUpdate();
+			if(kq==1)return true;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
+	public int GETID(String name) {
+		date = new HandlerDate();
+		int id=0;
+		String sql="select customerid from tb_customer where name=?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1,name);
+			resultSet=preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				id=resultSet.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return id;
+	}
 	public static void main(
 		String[] args) {
 		TourDAO dao=new TourDAO();
+		System.out.println(new java.util.Date());
+		System.out.println(dao.INSERT_BOOK("WSTC0004", 8)?"Thanh cong":"that bai");
+
+		System.out.println("image: "+dao.FORM_CUS("WSTC0004").getImage());
 		//dao.locations(1);
 		Map<Double,Double> maps=new HashMap<>();
 		for (Map.Entry<Double, Double> entry : dao.locations(1).entrySet()) {
 			System.out.println(entry.getKey()+" : "+entry.getValue());
 		}
-		
+		Customer customer =new Customer();
+		customer.setName("Nguyen Kim Hung");
+		customer.setEmail("nguyenkimhung252525@gmail.com");
+		customer.setPhone("0165400641");
+		customer.setAddress("Đà Nẵng");
+		System.out.println(dao.INSERT_CUS(customer)==true?"insert thanh cong":"that bai");
+		System.out.println(customer.getName());
 		System.out.println(dao.tourtypeid("Đà Nẵng"));
 		//System.out.println("Đà Nẵng");
 		dao.lat_lng("Đà Nẵng");

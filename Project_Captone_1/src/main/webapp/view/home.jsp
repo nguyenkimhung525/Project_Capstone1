@@ -32,7 +32,7 @@
 				<div class="header-bg"></div>
 				<%@include file="./shared-static/header.jsp"%>
 			</div>
-			<div class="container-content">	
+			<div class="container-content">		
 				<c:if test="${userclick==true}">
 					<%@include file="./shared-static/content.jsp" %>
 				</c:if>

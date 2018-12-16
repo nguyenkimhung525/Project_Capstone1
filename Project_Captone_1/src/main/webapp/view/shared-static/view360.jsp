@@ -199,9 +199,8 @@
 			console.log('n click: ' + n);
 			var zo = 15;
 			setTimeout(function() {
-				width++;
 				console.log('width: ' + width);
-				showimage(index += n);
+				showimage(index=n);
 			}, 2650);
 			width = 0;
 			if (n == 3) {
@@ -271,10 +270,10 @@
 				PSV2.stopAutorotate();
 				setTimeout(
 						function() {
-							document.getElementById("event_click1").style['pointer-events'] = 'none';
+							document.getElementById("event_click2").style['pointer-events'] = 'none';
 							setTimeout(
 									function() {
-										document.getElementById("event_click1").style['pointer-events'] = 'visible';
+										document.getElementById("event_click2").style['pointer-events'] = 'visible';
 									}, 2650);
 							var set = setInterval(function() {
 								if (zo > 85) {
@@ -300,10 +299,10 @@
 				}, 1200);
 				setTimeout(
 						function() {
-							document.getElementById("event_click3").style['pointer-events'] = 'none';
+							document.getElementById("event_click4").style['pointer-events'] = 'none';
 							setTimeout(
 									function() {
-										document.getElementById("event_click3").style['pointer-events'] = 'visible';
+										document.getElementById("event_click4").style['pointer-events'] = 'visible';
 									}, 2650);
 							var set = setInterval(function() {
 								if (zo > 85) {
@@ -324,12 +323,12 @@
 			}
 	}
 		function showimage(n) {
-
 			var i;
 			console.log('n: ' + n);
+				index=n+1;
 			var slides = document.querySelectorAll('.section');
 			//   var dots=document.querySelectorAll('.dots');
-			if (n > slides.length) {
+			if (index>slides.length) {
 				index = 1;
 			}
 			console.log('lenght: ' + slides.length);
@@ -339,10 +338,12 @@
 			/*  for ( i = 0; i < dots.length; i++) {
 			      dots[i].className = dots[i].className.replace(" active","");
 			  } */
+			  console.log('index: '+index);
 			slides[index - 1].style.visibility = 'visible';
-
 		}
-		showimage(index);
+		  console.log('index: '+index);
+		  var indexx=0;
+		showimage(indexx);
 	</script>
 
 	<script type="text/javascript">
