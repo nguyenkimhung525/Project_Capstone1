@@ -94,9 +94,10 @@ img {
 }
 
 #event_click1 img,#event_click2 img,#event_click3 img,#event_click4 img,#event_click5 img {
-	height: 70px;
+	height: 60px;
 	width: 70px;
-	opacity: 0.82;
+	opacity: 0.9;
+	display: block;
 }
 
 #event_click1 img:hover {

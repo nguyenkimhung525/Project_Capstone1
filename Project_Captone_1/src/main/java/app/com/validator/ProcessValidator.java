@@ -8,12 +8,12 @@ import org.springframework.validation.Validator;
 
 import app.com.entities.Customer;
 import app.com.entities.DetailTourForm;
+import app.com.entities.Login;
 
 public class ProcessValidator implements Validator{
 
 	private static final String NAME="^\\s*[a-zA-Z,\\s]+\\s*$";
 	private static final String EMAIL="^((([!#$%&'*+\\-/=?^_`{|}~\\w])|([!#$%&'*+\\-/=?^_`{|}~\\w][!#$%&'*+\\-/=?^_`{|}~\\.\\w]{0,}[!#$%&'*+\\-/=?^_`{|}~\\w]))[@]\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)$";
-
 	@Override
 	public boolean supports(Class<?> clazz) {
 		// TODO Auto-generated method stub
@@ -25,6 +25,7 @@ public class ProcessValidator implements Validator{
 	public boolean CHECK_Email(String email) {
 		return Pattern.matches(EMAIL, email);
 	}
+	
 	@Override
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub

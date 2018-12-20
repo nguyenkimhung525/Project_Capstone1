@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.sun.javafx.sg.prism.NGShape.Mode;
 import com.sun.org.apache.bcel.internal.generic.AALOAD;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.sun.org.glassfish.gmbal.ParameterNames;
 
 import app.com.dao.TourDAO;
@@ -27,11 +29,13 @@ import app.com.entities.Customer;
 import app.com.entities.DetailTour;
 import app.com.entities.DetailTourForm;
 import app.com.entities.Location;
+import app.com.entities.Login;
 import app.com.entities.TourType;
 import app.com.entities.View360;
 import app.com.entities.ViewMap;
 import app.com.services.TourServices;
 import app.com.validator.ProcessValidator;
+import app.com.validator.ValidatorLogin;
 
 @Controller
 public class HandlerController {
@@ -164,5 +168,30 @@ public class HandlerController {
 			model.addAttribute("formdetails", formdetails);
 			model.addAttribute("formdetails", formdetails);
             return "formcustomer";
+	 }
+	 @RequestMapping(value="/login")
+	 public String login(Model model) {
+		 boolean visibility=false;
+		 model.addAttribute("visibility",visibility);
+		 model.addAttribute("login", new Login());
+		 return "login";
+	 }
+	 @RequestMapping(value="/form-admin")
+	 public String admin(Model model,@ModelAttribute Login login,BindingResult bindingResult) {
+		 ValidatorLogin validatorLogin=new ValidatorLogin();
+		 boolean visibility=false;
+		 validatorLogin.validate(login, bindingResult);
+		 System.out.println("Username: "+login.getUsername());
+		 if(bindingResult.hasErrors()) {
+			 visibility=true;
+			 FieldError error = bindingResult.getFieldError();
+				logger.debug("code: "+error.getCode()+", field: "+error.getField());
+			 model.addAttribute("visibility",visibility);
+			return "login";
+		 }
+		 visibility=false;
+		 model.addAttribute("visibility",visibility);
+		 model.addAttribute("login", new Login());
+		 return "home";
 	 }
 }

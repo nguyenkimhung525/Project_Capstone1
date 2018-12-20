@@ -176,7 +176,6 @@
 				
 			</div>
 		</div>
-		
 	</div>
 	<div class="footer">
 			<%@include file="./shared-static/footer.jsp" %>

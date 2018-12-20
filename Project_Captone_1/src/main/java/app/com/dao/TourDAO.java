@@ -244,8 +244,8 @@ public class TourDAO {
 	}
 	public List<View360> image360(double lat) {
 		List<View360> list = new ArrayList<>();
-		String sql="select id_img,image " + 
-				"from tb_ttimage join tb_location using(lat_number) " + 
+		String sql="select id_img,image,caption,lat,lng,title " + 
+				"from tb_view360 join tb_location using(lat_number) " + 
 				"where lat_number=?";
 		try {
 			preparedStatement=connection.prepareStatement(sql);
@@ -255,6 +255,10 @@ public class TourDAO {
 				view360 = new View360();
 				view360.setId(resultSet.getInt(1));
 				view360.setImage(resultSet.getString(2));
+				view360.setCaption(resultSet.getString(3));
+				view360.setLat(resultSet.getDouble(4));
+				view360.setLng(resultSet.getDouble(5));
+				view360.setTitle(resultSet.getString(6));
 				list.add(view360);
 			}
 		} catch (SQLException e) {
@@ -332,7 +336,9 @@ public class TourDAO {
 		TourDAO dao=new TourDAO();
 		System.out.println(new java.util.Date());
 		System.out.println(dao.INSERT_BOOK("WSTC0004", 8)?"Thanh cong":"that bai");
-
+		for (View360 view : dao.image360(16.099534)) {
+			System.out.println("caption: "+view.getCaption()+" "+"lat: "+view.getLat());	
+		}
 		System.out.println("image: "+dao.FORM_CUS("WSTC0004").getImage());
 		//dao.locations(1);
 		Map<Double,Double> maps=new HashMap<>();

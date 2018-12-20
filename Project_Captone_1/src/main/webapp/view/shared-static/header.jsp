@@ -27,7 +27,7 @@
 								<li class="hvr-sweep-to-bottom"><a href="#">Dịch Vụ</a></li>
 								<li class="hvr-sweep-to-bottom"><a href="#">Khuyến Mãi</a></li>
 								<li class="hvr-sweep-to-bottom"><a href="#">Liên Hệ</a></li>
-								<li class="hvr-sweep-to-bottom"><a href="contact.html">Đăng
+								<li class="hvr-sweep-to-bottom"><a href="${pageContext.request.contextPath}/login">Đăng
 										Nhập</a></li>
 							</ul>
 						</div>

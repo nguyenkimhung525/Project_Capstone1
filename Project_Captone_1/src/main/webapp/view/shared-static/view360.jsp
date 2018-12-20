@@ -40,6 +40,7 @@
 		
 	</div>
 	<script type="text/javascript">
+		var strr="hung dia ca";
 		var div1 = document.getElementById('photosphere');
 		var div2 = document.getElementById('photosphere1');
 		var div3 = document.getElementById('photosphere2');
@@ -56,8 +57,9 @@
 			        'markers',
 			        'caption'
 			      ],
+				caption: '<i>${view.caption}</i>',
 	 		    default_fov: 80,
-	 		   	default_long:0,
+	 		   	default_long:${view.lat+0.4},
 				default_lat:0,
 			    time_anim:true,
 			    mousewheel: true,
@@ -65,10 +67,10 @@
 			    anim_speed:'0.3rpm',	
 			    markers:[{
 				      id: 'text',
-				      longitude: -0.2,
-				      latitude: -0.2,
+				      longitude: ${view.lat},
+				      latitude: ${view.lng},
 				      html: '<a id="event_click${status.count}" onmouseenter="dung${view.id}(this)" onmouseleave="chay${view.id}(this)" onclick="plusSlides(${status.count});">'+
-				      		 '<img class="image" src="${pageContext.request.contextPath}/static/image/link.png"/></a>',
+				      		 '<img class="image" src="${pageContext.request.contextPath}/static/image/icons8-street-view-96.png"/></a>',
 				      anchor: 'bottom right',
 				      scale: [0.5, 1.5],
 				      style: {
@@ -85,8 +87,8 @@
 				    },
 				    {
 					      id: 'title',
-					      longitude: 0,
-					      latitude: 0.2,
+					      longitude: ${view.lat-0.3},
+					      latitude: ${view.lng+0.12},
 					      html: '<div class="div" onmouseenter="dung${view.id}(this)" onmouseleave="chay${view.id}(this)" ><div class="d"><img class="image" src="${pageContext.request.contextPath}/static/image_viewmap/info.png"/></div>',
 					      anchor: 'bottom right',
 					      scale: [0.5, 1.5],
@@ -96,10 +98,30 @@
 					        fontFamily: 'Helvetica, sans-serif'
 					      },
 					      tooltip: {
-					        content: 'Thắng cảnh này nằm trên núi Chúa, ở độ cao 1.489 m so với mực nước biển, cách trung tâm thành phố khoảng 25 km, thuộc địa phận xã Hòa Ninh, Hòa Vang, Đà Nẵng',
+					        content: '${view.title}',
 					        position: 'right'
 					      }
-					      }]
+					      },
+					      {
+						      id: 'text2',
+						      longitude: ${view.lat+2.5},
+						      latitude: ${view.lng},
+						      html: '<a id="event_click${status.count}" onmouseenter="dung${view.id}(this)" onmouseleave="chay${view.id}(this)" onclick="plusSlides2(${status.count+4});">'+
+						      		 '<img class="image" src="${pageContext.request.contextPath}/static/image/icons8-street-view-96.png"/></a>',
+						      anchor: 'bottom right',
+						      scale: [0.5, 1.5],
+						      style: {
+						        maxWidth: '100px',
+						        color: 'white',
+						        fontSize: '15px',
+						        fontFamily: 'Helvetica, sans-serif',
+						        textAlign: 'center'
+						      },
+						      tooltip: {
+							     content: '<div class="content-image"><img style="width: 135px;height:90px" src="/Project_Captone_1/static/image-booking/${view360[1].image}"></div>',
+						        position: 'top'
+						      }
+						    }]
 			  });
 			var a=0;
 			var b=0;
@@ -205,8 +227,8 @@
 			width = 0;
 			if (n == 3) {
 				PSV3.animate({
-					longitude : -0.2,
-					latitude : -0.2
+					longitude : 1.2,
+					latitude : 0.1
 				}, 1200);
 				setTimeout(
 						function() {
@@ -234,8 +256,8 @@
 			}
 			if (n == 1) {
 				PSV1.animate({
-					longitude : -0.2,
-					latitude : -0.2
+					longitude : -1.27,
+					latitude : -0
 				}, 1200);
 				setTimeout(
 						function() {
@@ -264,8 +286,8 @@
 		
 			if (n == 2) {
 				PSV2.animate({
-					longitude : -0.2,
-					latitude : -0.2
+					longitude : 0.9,
+					latitude : 0.15
 				}, 1200);
 				PSV2.stopAutorotate();
 				setTimeout(
@@ -294,8 +316,8 @@
 			}
 			if (n == 4) {
 				PSV4.animate({
-					longitude : -0.2,
-					latitude : -0.2
+					longitude : 0.7,
+					latitude : 0.1
 				}, 1200);
 				setTimeout(
 						function() {
@@ -344,6 +366,155 @@
 		  console.log('index: '+index);
 		  var indexx=0;
 		showimage(indexx);
+		
+		var index1=1;
+		function plusSlides2(n) {
+
+			console.log('n click: ' + n);
+			var zo = 15;
+			setTimeout(function() {
+				console.log('width: ' + width);
+				showimage2(index1=n);
+			}, 2650);
+			width = 0;
+			if (n == 7) {
+				PSV3.animate({
+					longitude : 3.7,
+					latitude : 0.1
+				}, 1200);
+				setTimeout(
+						function() {
+							document.getElementById("event_click3").style['pointer-events'] = 'none';
+							setTimeout(
+									function() {
+										document.getElementById("event_click3").style['pointer-events'] = 'visible';
+									}, 2650);
+							var set = setInterval(function() {
+								if (zo > 85) {
+									clearInterval(set);
+									zo = 15;
+									PSV3.zoom(10);
+								} else {
+									zo = zo + 2;
+									PSV3.zoom(zo);
+								}
+							}, 40);
+							PSV2.startAutorotate();
+							row[1].style.border = '1.7px solid red';
+							row[0].style.border = '1px solid white';
+							row[2].style.border = '1px solid white';
+							row[3].style.border = '1px solid white';
+						}, 1200)
+			}
+			if (n == 5) {
+				PSV1.animate({
+					longitude : 1.23,
+					latitude : -0
+				}, 1200);
+				setTimeout(
+						function() {
+							document.getElementById("event_click1").style['pointer-events'] = 'none';
+							setTimeout(
+									function() {
+										document.getElementById("event_click1").style['pointer-events'] = 'visible';
+									}, 2650);
+							var set = setInterval(function() {
+								if (zo > 85) {
+									clearInterval(set);
+									zo = 15;
+									PSV1.zoom(10);
+								} else {
+									zo = zo + 2;
+									PSV1.zoom(zo);
+								}
+							}, 50);
+							PSV4.startAutorotate();
+							row[3].style.border = '1.7px solid red';
+							row[2].style.border = '1px solid white';
+							row[0].style.border = '1px solid white';
+							row[1].style.border = '1px solid white';
+						}, 1200);
+			}
+		
+			if (n == 6) {
+				PSV2.animate({
+					longitude : 3.4,
+					latitude : 0.15
+				}, 1200);
+				PSV2.stopAutorotate();
+				setTimeout(
+						function() {
+							document.getElementById("event_click2").style['pointer-events'] = 'none';
+							setTimeout(
+									function() {
+										document.getElementById("event_click2").style['pointer-events'] = 'visible';
+									}, 2650);
+							var set = setInterval(function() {
+								if (zo > 85) {
+									clearInterval(set);
+									zo = 15;
+									PSV2.zoom(10);
+								} else {
+									zo = zo + 2;
+									PSV2.zoom(zo);
+								}
+							}, 40);
+							PSV1.startAutorotate();
+							row[0].style.border = '1.7px solid red';
+							row[3].style.border = '1px solid white';
+							row[1].style.border = '1px solid white';
+							row[2].style.border = '1px solid white';
+						}, 1200);
+			}
+			if (n == 8) {
+				PSV4.animate({
+					longitude : 3.2,
+					latitude : 0.1
+				}, 1200);
+				setTimeout(
+						function() {
+							document.getElementById("event_click4").style['pointer-events'] = 'none';
+							setTimeout(
+									function() {
+										document.getElementById("event_click4").style['pointer-events'] = 'visible';
+									}, 2650);
+							var set = setInterval(function() {
+								if (zo > 85) {
+									clearInterval(set);
+									zo = 15;
+									PSV4.zoom(10);
+								} else {
+									zo = zo + 2;
+									PSV4.zoom(zo);
+								}
+							}, 50);
+							PSV3.startAutorotate();
+							row[2].style.border = '1px solid red';
+							row[0].style.border = '1px solid white';
+							row[3].style.border = '1px solid white';
+							row[1].style.border = '1px solid white';
+						}, 1200);
+			}
+	}
+		function showimage2(n) {
+			var i;
+			console.log('n: ' + n);
+				index1=n-5;
+			var slides = document.querySelectorAll('.section');
+			//   var dots=document.querySelectorAll('.dots');
+			if (index1==0) {
+				index1 = 4;
+			}
+			console.log('lenght: ' + slides.length);
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.visibility = 'hidden';
+			}
+			/*  for ( i = 0; i < dots.length; i++) {
+			      dots[i].className = dots[i].className.replace(" active","");
+			  } */
+			  console.log('index: '+index);
+			slides[index1 - 1].style.visibility = 'visible';
+		}
 	</script>
 
 	<script type="text/javascript">
