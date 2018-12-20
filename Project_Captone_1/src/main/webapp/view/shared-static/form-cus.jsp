@@ -1,5 +1,5 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
 	<div class="content-form-cus">
 					<form:form modelAttribute="customer" action="${pageContext.request.contextPath}/add-customer" method="post">
 					<div class="element col1">

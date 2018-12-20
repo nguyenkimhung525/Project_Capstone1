@@ -4,7 +4,7 @@
 	<div class="banner-right">
 		<div style="" class="br-col-1-image">
 			<img alt=""
-				src="${pageContext.request.contextPath}/static/image/indexheader.jpg">
+				src="${pageContext.request.contextPath}/static/image/danangtrangchu.jpg">
 		</div>
 		<div class="br-col-2-op"></div>
 		<div class="br-col-2-op-form"></div>

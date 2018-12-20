@@ -204,14 +204,14 @@ body{
 	  transition-timing-function: ease-out;
 	}
 	.hvr-sweep-to-bottom:hover, .hvr-sweep-to-bottom:focus, .hvr-sweep-to-bottom:active {
-	  color: white;
+	  color: black;
 	}
 	.hvr-sweep-to-bottom:hover:before, .hvr-sweep-to-bottom:focus:before, .hvr-sweep-to-bottom:active:before {
 	  -webkit-transform: scaleY(1);
 	  transform: scaleY(1);
 	}
 	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-	    color: #fff;
+	     color: black;
 	}
 html,body{
 		padding: 0;

@@ -23,6 +23,23 @@
     line-height: 30px;
     text-align: right;
 }
+table, td, th {
+  border: 1px solid black;
+}
+table, td{
+		font-style: italic;
+	font-size: 14px;
+}
+table {
+  border-collapse: collapse;
+  width: 85%;
+}
+
+th {
+		font-style: normal;
+  height: 50px;
+  font-size: 15.5px;
+}
 .navbar-brand i{
 	font-size: 1em;
     color:#D1D1D1;
